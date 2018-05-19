@@ -24,6 +24,7 @@
 
     <!--Our angular scripts -->
     <!-- All component scripts need to be declared before app.module.js (thats the entry point for angular)-->
+    <script src="app/api/api.service.js"></script>
     <script src="app/footer/footer.component.js"></script>
     <script src="app/home/home.component.js"></script>
     <script src="app/navbar/navbar.component.js"></script>
