@@ -5,7 +5,7 @@
         $ctrl.books = []; 
 
         //Get books list from web api
-        api.GetBooks().then(function(response) {
+        api.getBooks().then(function(response) {
             $ctrl.books = response.data;
         });
     }

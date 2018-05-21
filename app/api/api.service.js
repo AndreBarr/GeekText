@@ -14,8 +14,11 @@ const ApiService = function($http){
     };
 
 
-    this.GetBooks = function(){
+    this.getBooks = function(){
         return _get("api/books.php");
     };
 
+    this.getBookDetail = function(bookId){
+        return _get("api/book_detail.php", { id: bookId});
+    };
 };

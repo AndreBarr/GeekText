@@ -6,9 +6,17 @@ Real life Example of a Web Api Call:
 	
 This api call URL would look like: http://localhost/api/books.php
 A GET request to this url should return a list of books in a JSON format
-This info would come from the SQL Database.
+This info would come from the MySQL Database.
+
+You can serialize a php object into JSON by using json_encode($object);
+
+I'm no expert in PHP so if there's better ways to go about doing this please 
+let me know. 
+	-Dariel
 */
 header('Content-Type: application/json');
+
+/*This is just dummy data to show how angular works with databinding. See books component js and html.*/
 $json = 
 '[
 	{ "name":"Harry Potter", "description":"Some description", "price": 14.99 },
