@@ -29,6 +29,8 @@
     <script src="app/home/home.component.js"></script>
     <script src="app/navbar/navbar.component.js"></script>
     <script src="app/about/about.component.js"></script>
+    <script src="app/books/books.component.js"></script>
+    <script src="app/books/books-detail.component.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>

@@ -8,7 +8,9 @@
     module.component('appFooter', FooterComponent);
     module.component('appHome', HomeComponent);
     module.component('appAbout', AboutComponent);
-
+    module.component('appBooks', BooksComponent);
+    module.component('appBooksDetail', BooksDetailComponent);
+    
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
         // $locationProvider.html5Mode(true);
@@ -27,8 +29,16 @@
         .state("about", {
             url: "/about",
             component: "appAbout"
+        })
+        .state("books", {
+            url: "/books",
+            component: "appBooks"
+        })
+        .state("books.detail", {
+            url: "/{id}",
+            component: "appBooksDetail"
         });
-
+        
     });
 
 })();
