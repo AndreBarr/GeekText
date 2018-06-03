@@ -12,13 +12,18 @@ const ApiService = function($http){
             // .finally(finFunc)
             // .catch(errorFunc);
     };
-
-
+    
     this.getBooks = function(){
         return _get("api/books.php");
     };
-
+    
     this.getBookDetail = function(bookId){
         return _get("api/book_detail.php", { id: bookId});
     };
+
+
+    //Use for checking if user is logged in
+    this.isLoggedIn = function(){
+        return false;
+    }
 };

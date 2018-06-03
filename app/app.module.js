@@ -10,6 +10,7 @@
     module.component('appAbout', AboutComponent);
     module.component('appBooks', BooksComponent);
     module.component('appBooksDetail', BooksDetailComponent);
+    module.component('appCart', CartComponent);
     
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -37,6 +38,10 @@
         .state("books.detail", {
             url: "/{id}",
             component: "appBooksDetail"
+        })
+        .state("cart", {
+            url: "/cart",
+            component: "appCart"
         });
         
     });
