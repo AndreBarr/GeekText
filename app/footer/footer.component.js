@@ -1,5 +1,5 @@
 ﻿const FooterComponent = {
-    templateUrl: "/app/footer/footer.component.html",
+    templateUrl: "GeekText/app/footer/footer.component.html",
     controller: function () {
 
     }

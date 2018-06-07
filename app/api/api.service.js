@@ -14,11 +14,11 @@ const ApiService = function($http){
     };
     
     this.getBooks = function(){
-        return _get("api/books.php");
+        return _get("GeekText/api/books.php");
     };
     
     this.getBookDetail = function(bookId){
-        return _get("api/book_detail.php", { id: bookId});
+        return _get("GeekText/api/book_detail.php", { id: bookId});
     };
 
 
