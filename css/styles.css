@@ -45,3 +45,23 @@ footer {
 .content-main {
   margin-top: 80px;
 }
+
+/* Form Style*/
+.hidden-label {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.login-form {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="password"],
+input[type="email"] {
+  margin: 10px 0px;
+}

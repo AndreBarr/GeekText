@@ -3,6 +3,12 @@ const LoginComponent = {
     controller: function (api) {
     	var $ctrl = this;
     	$ctrl.onSubmit = function(){
+    		
+    		/*if ($ctrl.username == "Andre@a" && $ctrl.password == "password")
+    		{
+    			alert('Login Successful!');
+    		}*/
+
     		api.login($ctrl.username, $ctrl.password);
     	};
     }

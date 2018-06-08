@@ -1,19 +1,18 @@
 <div class="container content-main">
-    <div class="row">
-		<div class="col col-sm-6 col-md-4">
-			<h1>GeekText</h1>
+	<div class="form-group login-form">
+		<h1>Sign In</h1>
 
-       		<form>
+       	<form>
 
-				<label for="email" class="hidden-label">Email</label>
-				<input class="form-control" type="email" id="email" name="email" ng-model="$ctrl.username" placeholder="Email">
+			<label for="email" class="hidden-label">Email</label>
+			<input class="form-control" type="email" id="email" name="email" ng-model="$ctrl.username" placeholder="Email">
 
-				<label for="password" class="hidden-label">Password</label>
-				<input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password">
+			<label for="password" class="hidden-label">Password</label>
+			<input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password">
 
-				<input class= "btn btn-primary" ng-click="$ctrl.onSubmit()" type="submit" value="Sign In">
+			<input class= "btn btn-primary" ng-click="$ctrl.onSubmit()" ui-sref="profile" type="submit" value="Sign In">
 
-        	</form>
-		</div>
-    </div>
+        </form>
+
+	</div>
 </div>
