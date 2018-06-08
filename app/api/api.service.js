@@ -26,4 +26,8 @@ const ApiService = function($http){
     this.isLoggedIn = function(){
         return false;
     }
+
+    this.login = function(username, password){
+        return _get("api/login.php", { username: username, password: password});
+    }
 };

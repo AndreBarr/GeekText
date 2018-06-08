@@ -1,3 +1,4 @@
 #iis meta files
 /apphost.config
 /web.config
+/.vs
