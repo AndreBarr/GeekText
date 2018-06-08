@@ -1,5 +1,9 @@
 #iis meta files
 /apphost.config
 /web.config
+<<<<<<< HEAD
 app/navbar/.nfs.20051034.0249
 app/navbar/.nfs.20051034.0249
+=======
+/.vs
+>>>>>>> 551e200bf50e1056cac81f977fe6f0be3b1dc0b7
