@@ -45,3 +45,7 @@ footer {
 .content-main {
   margin-top: 80px;
 }
+
+.freeze-scroll {
+  overflow-y: hidden;
+}
