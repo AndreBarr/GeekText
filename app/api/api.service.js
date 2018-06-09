@@ -21,9 +21,13 @@ const ApiService = function($http){
         return _get("GeekText/api/book_detail.php", { id: bookId});
     };
 
+    this.getComments = function(bookId) {
+        return _get("GeekText/api/book_comments.php", { id: bookId});
+    };
+
 
     //Use for checking if user is logged in
     this.isLoggedIn = function(){
         return false;
-    }
+    };
 };

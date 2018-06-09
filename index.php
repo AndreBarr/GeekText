@@ -32,6 +32,7 @@
     <script src="GeekText/app/books/books.component.js"></script>
     <script src="GeekText/app/books/books-detail.component.js"></script>
     <script src="GeekText/app/cart/cart.component.js"></script>
+    <script src="GeekText/app/books/books-comments.component.js"></script>
     <script src="GeekText/app/app.module.js"></script>
 </body>
 </html>

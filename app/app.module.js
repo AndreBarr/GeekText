@@ -10,6 +10,7 @@
     module.component('appAbout', AboutComponent);
     module.component('appBooks', BooksComponent);
     module.component('appBooksDetail', BooksDetailComponent);
+    module.component('appBooksComments', BooksCommentsComponent);
     module.component('appCart', CartComponent);
     
     //Configure angular here
@@ -38,6 +39,10 @@
         .state("books.detail", {
             url: "GeekText/{id}",
             component: "appBooksDetail"
+        })
+        .state("books.comments", {
+            url: "GeekText/{id}",
+            component: "appBooksComments"
         })
         .state("cart", {
             url: "GeekText/cart",
