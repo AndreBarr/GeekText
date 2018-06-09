@@ -1,5 +1,5 @@
 ﻿const CartComponent = {
-    templateUrl: "app/cart/cart.component.html",
+    templateUrl: "/app/cart/cart.component.html",
     controller: function (api) {
         var $ctrl = this;
         $ctrl.books = []; 

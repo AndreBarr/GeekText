@@ -29,5 +29,5 @@ const ApiService = function($http){
     //Use for checking if user is logged in
     this.isLoggedIn = function(){
         return false;
-    };
+    }
 };

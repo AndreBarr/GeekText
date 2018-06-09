@@ -1,5 +1,5 @@
 const AboutComponent = {
-    templateUrl: "app/about/about.component.html",
+    templateUrl: "/app/about/about.component.html",
     controller: function () {
 
     }
