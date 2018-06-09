@@ -1,5 +1,5 @@
 const ProfileComponent = {
-    templateUrl: "/app/profile/profile.component.html",
+    templateUrl: "GeekText/app/profile/profile.component.html",
     controller: function () {
 
     }

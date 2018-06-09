@@ -14,15 +14,15 @@ const ApiService = function($http){
     };
     
     this.getBooks = function(){
-        return _get("api/books.php");
+        return _get("GeekText/api/books.php");
     };
     
     this.getBookDetail = function(bookId){
-        return _get("api/book_detail.php", { id: bookId});
+        return _get("GeekText/api/book_detail.php", { id: bookId});
     };
 
     this.getComments = function(bookId) {
-        return _get("api/book_comments.php", { id: bookId});
+        return _get("GeekText/api/book_comments.php", { id: bookId});
     };
 
 
@@ -32,6 +32,6 @@ const ApiService = function($http){
     }
 
     this.login = function(username, password){
-        return _get("api/login.php", { username: username, password: password});
+        return _get("GeekText/api/login.php", { username: username, password: password});
     }
 };
