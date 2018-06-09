@@ -1,0 +1,35 @@
+<div class="modal-backdrop fade show"></div>
+<div class="modal d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">{{$ctrl.comments.book}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ui-sref="books">
+            <span aria-hidden="true" >&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">                
+                <div class="col">
+                    <span>User: <b>{{$ctrl.comments.name}}</b></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span>Rating: {{$ctrl.comments.rating}}/5 Stars</span>
+                </div>
+            </div>
+            <br>
+          <div class="row">
+            <div class="col">
+                <h5><u>Comment</u></h5>
+                {{$ctrl.comments.comment}}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" ui-sref="books">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
