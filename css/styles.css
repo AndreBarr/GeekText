@@ -45,3 +45,11 @@ footer {
 .content-main {
   margin-top: 80px;
 }
+
+.hidden-label {
+	position: absolute;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	visibility: hidden;
+}

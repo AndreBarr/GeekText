@@ -24,8 +24,18 @@
                 <a class="nav-link" ui-sref="about">About</a>
             </li>
         </ul>
-        <div class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-          </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <input placeholder=Search class="form-control" ng-model="search" />    
+            </li>
+            <li class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="cart">&nbsp; Cart &nbsp;</a>
+            </li>
+            <li class="nav-item" ui-sref-active="active">
+                <button ui-sref="login" class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+            </li>
+           
+        </ul>
     </div>
+    
 </nav>

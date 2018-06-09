@@ -12,6 +12,8 @@
     module.component('appBooksDetail', BooksDetailComponent);
     module.component('appBooksComments', BooksCommentsComponent);
     module.component('appCart', CartComponent);
+    module.component('appLogin', LoginComponent);
+    module.component('appProfile', ProfileComponent);
     
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -47,6 +49,14 @@
         .state("cart", {
             url: "/cart",
             component: "appCart"
+        })
+        .state("login", {
+            url: "/login",
+            component: "appLogin"
+        })
+        .state("profile", {
+            url: "/profile",
+            component: "appProfile"
         });
         
     });
