@@ -12,7 +12,8 @@
 					<input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password">
 				</div>
 				<div class="form-group">
-					<input class= "btn btn-primary" ng-click="$ctrl.onSubmit()" type="submit" value="Sign In">
+					<!-- Contains Temporary ui-sref to Profile Page -->
+					<input class= "btn btn-primary" ng-click="$ctrl.onSubmit()" ui-sref="profile" type="submit" value="Sign In">
 				</div>
         	</form>
 		</div>

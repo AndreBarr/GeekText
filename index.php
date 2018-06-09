@@ -33,6 +33,7 @@
     <script src="app/books/books-detail.component.js"></script>
     <script src="app/cart/cart.component.js"></script>
     <script src="app/login/login.component.js"></script>
+    <script src="app/profile/profile.component.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>
