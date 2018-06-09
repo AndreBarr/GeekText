@@ -1,5 +1,5 @@
 ﻿const BooksComponent = {
-    templateUrl: "GeekText/app/books/books.component.html",
+    templateUrl: "/app/books/books.component.html",
     controller: function (api) {
         var $ctrl = this;
         $ctrl.books = []; 

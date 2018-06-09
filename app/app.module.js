@@ -25,27 +25,27 @@
           Angular handles replacing the content based on the URL
         */
         $stateProvider.state("home", {
-            url: "GeekText/",
+            url: "/",
             component: 'appHome'
         })
         .state("about", {
-            url: "GeekText/about",
+            url: "/about",
             component: "appAbout"
         })
         .state("books", {
-            url: "GeekText/books",
+            url: "/books",
             component: "appBooks"
         })
         .state("books.detail", {
-            url: "GeekText/{id}",
+            url: "/{id}",
             component: "appBooksDetail"
         })
         .state("books.comments", {
-            url: "GeekText/{id}",
+            url: "/{id}",
             component: "appBooksComments"
         })
         .state("cart", {
-            url: "GeekText/cart",
+            url: "/cart",
             component: "appCart"
         });
         

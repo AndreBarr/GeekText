@@ -1,5 +1,5 @@
 const BooksDetailComponent = {
-    templateUrl: "GeekText/app/books/books-detail.component.html",
+    templateUrl: "/app/books/books-detail.component.html",
     controller: function ($stateParams, api) {
         var $ctrl = this;
         var bookId = $stateParams.id;

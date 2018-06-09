@@ -1,5 +1,5 @@
 const BooksCommentsComponent = {
-    templateUrl: "GeekText/app/books/books-comments.component.html",
+    templateUrl: "/app/books/books-comments.component.html",
     controller: function ($stateParams, api) {
         var $ctrl = this;
         var bookId = $stateParams.id;
