@@ -1,5 +1,5 @@
 ﻿const HomeComponent = {
-    templateUrl: "/app/home/home.component.html",
+    templateUrl: "app/home/home.component.html",
     controller: function () {
 
     }

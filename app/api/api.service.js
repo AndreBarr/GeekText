@@ -14,15 +14,15 @@ const ApiService = function($http){
     };
     
     this.getBooks = function(){
-        return _get("/api/books.php");
+        return _get("api/books.php");
     };
     
     this.getBookDetail = function(bookId){
-        return _get("/api/book_detail.php", { id: bookId});
+        return _get("api/book_detail.php", { id: bookId});
     };
 
     this.getComments = function(bookId) {
-        return _get("/api/book_comments.php", { id: bookId});
+        return _get("api/book_comments.php", { id: bookId});
     };
 
 

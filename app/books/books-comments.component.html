@@ -9,14 +9,20 @@
         </button>
         </div>
         <div class="modal-body">
+            <div class="row">                
+                <div class="col">
+                    <span>User: <b>{{$ctrl.comments.name}}</b></span>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <span>Rating: {{$ctrl.comments.rating}}/5 Stars</span>
                 </div>
             </div>
+            <br>
           <div class="row">
             <div class="col">
-                <h5>Comment</h5>
+                <h5><u>Comment</u></h5>
                 {{$ctrl.comments.comment}}
             </div>
           </div>
