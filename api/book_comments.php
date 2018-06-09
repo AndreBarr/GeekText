@@ -6,9 +6,9 @@
 
 header('Content-Type: application/json');
 $json = 
-'[
-	{ "bookId":0, "name":"Anonymous", "book":"Harry Potter", "comment":"Great book!", "rating": 4 }
-]';
+'{
+	 "book_id":1, "name":"Anonymous", "book":"Harry Potter", "comment":"Great book!", "rating": 4 
+}';
 echo $json;
 
 ?>
