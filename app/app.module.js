@@ -10,6 +10,7 @@
     module.component('appAbout', AboutComponent);
     module.component('appBooks', BooksComponent);
     module.component('appBooksDetail', BooksDetailComponent);
+    module.component('appBooksComments', BooksCommentsComponent);
     module.component('appCart', CartComponent);
     module.component('appLogin', LoginComponent);
     module.component('appProfile', ProfileComponent);
@@ -40,6 +41,10 @@
         .state("books.detail", {
             url: "/{id}",
             component: "appBooksDetail"
+        })
+        .state("books.comments", {
+            url: "/{id}",
+            component: "appBooksComments"
         })
         .state("cart", {
             url: "/cart",
