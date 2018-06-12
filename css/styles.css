@@ -49,6 +49,7 @@ footer {
 .freeze-scroll {
   overflow-y: hidden;
 }
+
 .hidden-label {
 	position: absolute;
 	height: 0;
