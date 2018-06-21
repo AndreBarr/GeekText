@@ -5,7 +5,7 @@
 
 	header('Content-Type: application/json');
 
-	$query = 'SELECT * FROM gt_books';
+	$query = 'SELECT * FROM gt_books JOIN gt_authors';
 	$result = mysqli_query($conn, $query);
 	$fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	echo json_encode($fdata);

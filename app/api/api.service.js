@@ -18,11 +18,11 @@ const ApiService = function($http){
     };
     
     this.getBookDetail = function(bookId){
-        return _get("api/book_detail.php", { id: bookId});
+        return _get("api/book_detail.php", { BookID: bookId});
     };
 
     this.getComments = function(bookId) {
-        return _get("api/book_comments.php", { id: bookId});
+        return _get("api/book_comments.php", { BookID: bookId});
     };
 
 
