@@ -1,4 +1,14 @@
 <?php
+
+	require('../config/config.php');
+	require('../config/db.php');
+
+	header('Content-Type: application/json');
+
+	$query = 'SELECT * FROM gt_books';
+	$result = mysqli_query($conn, $query);
+	$fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	echo json_encode($fdata);
 /*
 Example API Call
 Real life Example of a Web Api Call:
@@ -14,10 +24,10 @@ I'm no expert in PHP so if there's better ways to go about doing this please
 let me know. 
 	-Dariel
 */
-header('Content-Type: application/json');
+
 
 /*This is just dummy data to show how angular works with databinding. See books component js and html.*/
-$json = 
+/*$json = 
 '[
 	{ "name":"Harry Potter", "description":"Some description", "price": 14.99 },
 	{ "name":"Game Of Thrones", "description":"Some description", "price": 59.99 },
@@ -26,6 +36,6 @@ $json =
 	{ "name":"The Lord Of The Rings", "description":"Some description", "price": 17.99 },
 	{ "name":"The Hobbit", "description":"Some description", "price": 17.99 }
 ]';
-echo $json;
+echo $json;*/
 ?>
 
