@@ -10,16 +10,34 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="form-horizontal">
+                <div class="form-group">                        
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filter">
+                       Filters
+                    </button>
+                    </p>
+                    <div class="collapse" id="filter">
+                        <div class="card card-body">
+                            Some Filters Here
+                            <input />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
             <div class="row">
                 <div class="col">
-                    <h5>{{b.name}}</h3>
-                    <span class="text-muted">{{b.description}}</p>
-                    <a ui-sref="books.detail({id: $index})">View</a>
-                     | <a ui-sref="books.comments({id: $index})">Comments</a>
+                    <h5>{{b.BookTitle}}</h3>
+                        <!--Removed book description as it was too much text to display-->
+                    <span class="text-muted">By {{b.AuthorName}}</p>
+                    <a ui-sref="books.detail({id: b.BookID})">View</a>
+                     | <a ui-sref="books.comments({id: b.BookID})">Comments</a>
                 </div>
             <div class="col">
-                <span class="float-right">$ {{b.price}}</p>
+                <span class="float-right">$ {{b.Price}}</p>
                 </div>
             </div>
             <div class="row">
