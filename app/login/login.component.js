@@ -5,5 +5,10 @@ const LoginComponent = {
     	$ctrl.onSubmit = function(){
     		api.login($ctrl.username, $ctrl.password);
     	};
+
+        $ctrl.onCreate = function(){
+                alert('Do Something');
+                api.createAcc($ctrl.newUsername, $ctrl.newPassword, $ctrl.confirmedPassword);
+        };
     }
 };
