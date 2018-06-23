@@ -1,21 +1,32 @@
 ﻿<div class="container content-main">
     <h1>Cart</h1>
-    
+    <hr />
     <div class="container">
         <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
             <div class="row">
                 <div class="col">
-                    <h5>{{b.name}}</h3>
-                    <span class="text-muted">{{b.description}}</p>
-                    <a ui-sref="books.detail({id: $index})">View</a>
+                    <a  ui-sref="books.detail({id: b.BookID})">
+                        <h4 class="font-weight-light">{{b.BookTitle}}</h3>
+                        </a>
+                    <small>By {{b.AuthorName}}</small>
+                    <span class="text-muted">{{b.Description}}</p>
                 </div>
-            <div class="col">
-                <span class="float-right">$ {{b.price}}</p>
+                <div class="col">
                 </div>
+                <div class="">
+                    <label>Qty</label>
+                    <input type="number" class="form-control form-control-sm" value="1"/>
+                </div>
+                <span class="float-right">$ {{b.Price}}</span>
             </div>
             <div class="row">
                 <div class="col">
                     <hr/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <button class="btn btn-primary">Check Out</button>
                 </div>
             </div>
         </div>
