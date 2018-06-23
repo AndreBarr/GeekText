@@ -4,11 +4,11 @@ const BooksCommentsComponent = {
         var $ctrl = this;
         var bookId = $stateParams.id;
         $ctrl.comments = {}; 
-        console.log($stateParams);
 
         //Get books list from web api
         api.getComments(bookId).then(function(response) {
             $ctrl.comments = response.data;
+            console.log($ctrl.comments);
         }, function(){
         	//404 not found
         });
