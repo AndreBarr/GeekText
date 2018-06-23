@@ -25,6 +25,13 @@ const ApiService = function($http){
         return _get("api/book_comments.php", { BookID: bookId});
     };
 
+    this.getAuthorDetail = function(authorId){
+        return _get("api/author_detail.php", { AuthorID: authorId});
+    };
+
+    this.getAuthorBooks = function (authorId) {
+        return _get("api/author_books.php", { AuthorID: authorId });
+    };
 
     //Use for checking if user is logged in
     this.isLoggedIn = function(){

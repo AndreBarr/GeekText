@@ -9,6 +9,7 @@
 					, gb.BookTitle
 					, gb.BookDescription
 					, gb.AuthorID
+					, gb.Genre
 					, ga.AuthorName
 					, ga.AuthorBio
 					, gb.Price

@@ -1,0 +1,35 @@
+<div class="container content-main">
+
+    <div class="row">
+        <div class="col">
+            <h1>{{$ctrl.auth.AuthorName}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>{{$ctrl.auth.AuthorBio}}</p>
+        </div>
+    </div>
+
+
+    <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
+        <div class="row">
+            <div class="col">
+                <h4>{{b.BookTitle}}</h4>
+                <div>Genre: {{b.Genre}}</div>
+                <a ui-sref="books.detail({id: b.BookID})">View</a>
+                | <a ui-sref="books.comments({id: b.BookID})">Comments</a>
+            </div>
+            <div class="col">
+                <span class="float-right">$ {{b.Price}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr />
+            </div>
+        </div>
+    </div>
+
+    <ui-view></ui-view>
+</div>

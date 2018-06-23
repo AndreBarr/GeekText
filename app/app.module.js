@@ -14,7 +14,8 @@
     module.component('appCart', CartComponent);
     module.component('appLogin', LoginComponent);
     module.component('appProfile', ProfileComponent);
-    
+    module.component('appAuthorDetail', AuthorDetailComponent);
+
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
         // $locationProvider.html5Mode(true);
@@ -57,6 +58,10 @@
         .state("profile", {
             url: "/profile",
             component: "appProfile"
+        })  
+        .state("author", {
+            url: "/author/{id}",
+            component: "appAuthorDetail"
         });
         
     });
