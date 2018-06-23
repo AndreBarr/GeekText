@@ -21,6 +21,7 @@ $query = 'SELECT gb.BookID
  				, gb.PublisherID
  				, gp.PublisherName
  				, gp.PublisherDescription
+ 				, gb.Price
 		  FROM gt_books AS gb 
 			LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID 
 			LEFT JOIN gt_publishers AS gp ON gp.PublisherID = gb.PublisherID 

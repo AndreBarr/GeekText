@@ -11,6 +11,7 @@
 					, gb.AuthorID
 					, ga.AuthorName
 					, ga.AuthorBio
+					, gb.Price
 			  FROM gt_books AS gb 
 				LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID';
 	$result = mysqli_query($conn, $query);
