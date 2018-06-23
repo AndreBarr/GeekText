@@ -34,4 +34,8 @@ const ApiService = function($http){
     this.login = function(username, password){
         return _get("api/login.php", { username: username, password: password});
     }
+
+    this.createAcc = function(newUser, newPass, confirmPass){
+        return _get("api/login.php", { username: username, password: password});
+    }
 };

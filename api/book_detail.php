@@ -29,6 +29,6 @@ $query = 'SELECT gb.BookID
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-echo json_encode($fdata[0]);
+echo json_encode($fdata);
 ?>
 
