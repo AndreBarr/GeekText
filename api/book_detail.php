@@ -12,7 +12,19 @@ require('../config/db.php');
 header('Content-Type: application/json');
 
 $id = $_GET["BookID"];
-$query = 'SELECT * FROM gt_books JOIN gt_publishers JOIN gt_authors WHERE BookID = ' . $id;
+$query = 'SELECT gb.BookID
+ 				, gb.BookTitle
+ 				, gb.BookDescription
+ 				, gb.AuthorID
+ 				, ga.AuthorName
+ 				, ga.AuthorBio
+ 				, gb.PublisherID
+ 				, gp.PublisherName
+ 				, gp.PublisherDescription
+		  FROM gt_books AS gb 
+			LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID 
+			LEFT JOIN gt_publishers AS gp ON gp.PublisherID = gb.PublisherID 
+		  WHERE BookID = ' . $id;
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

@@ -5,7 +5,15 @@
 
 	header('Content-Type: application/json');
 
-	$query = 'SELECT * FROM gt_books JOIN gt_authors';
+	$query = 'SELECT gb.BookID
+					, gb.BookTitle
+					, gb.BookDescription
+					, gb.BookRating
+					, gb.AuthorID
+					, ga.AuthorName
+					, ga.AuthorBio
+			  FROM gt_books AS gb 
+				LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID';
 	$result = mysqli_query($conn, $query);
 	$fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	echo json_encode($fdata);
