@@ -10,7 +10,7 @@
 
                 <div class="row">
                     <div class="col-12 col-sm-3">
-                        <img class="img-fluid mb-4" src="https://images-na.ssl-images-amazon.com/images/I/51toTzgHGXL._SX324_BO1,204,203,200_.jpg" class="img-fluid" />
+                        <img class="img-fluid mb-4" src="https://images-na.ssl-images-amazon.com/images/I/51toTzgHGXL._SX324_BO1,204,203,200_.jpg" />
 
                     </div>
                     <div class="col">
@@ -29,26 +29,37 @@
 
                             </div>
                             <div class="col text-right">
-                                <h4>$ {{$ctrl.book.Price}}</span>
+                                <h4>$ {{$ctrl.book.Price}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                              <button class="btn btn-link float-right">Mark as Purchased</button>
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-end align-items-end">
-                            <div>
-                                <label>Quantity</label>
-                                <input value="1" class="form-control form-control-sm" type="number" />
-                            </div>
-                            <div class="ml-2">
-                                <button class="btn btn-primary">Add To Cart</button>
-                            </div>
-
-                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <h5>Description</h5>
+                        {{$ctrl.book.BookDescription}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h5>Description</h5>
-                        {{$ctrl.book.BookDescription}}
+                        <hr />
+                        <h5>Reviews</h5>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="c in ($ctrl.comments) track by $index">
+                    <div class="col">
+                        <div class="post-comment">
+                            <div >{{c.UserName}}</div>
+                            <div ng-if="c.UserName == null">Anonymous</div>
+                            <div class="text-muted"><small>{{c.IndividualRatingValue}}/5 Stars</small></div>
+                            <div>{{c.IndividualRatingComment}}</div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,16 +4,24 @@ const BooksDetailComponent = {
         var $ctrl = this;
         var bookId = $stateParams.id;
         $ctrl.book = {};
+        $ctrl.comments = {};
         let html = angular.element('html');
 
 
-          //Get books list from web api
-        api.getBookDetail(bookId).then(function(response) {
+        //Get books list from web api
+        api.getBookDetail(bookId).then(function (response) {
             $ctrl.book = response.data;
-        },   function(){
+        }, function () {
             //404 not found
         });
 
+
+        //Get books list from web api
+        api.getComments(bookId).then(function (response) {
+            $ctrl.comments = response.data;
+        }, function () {
+            //404 not found
+        });
 
         this.$onInit = function () {
             html.addClass('freeze-scroll');
@@ -22,6 +30,6 @@ const BooksDetailComponent = {
         this.$onDestroy = function () {
             html.removeClass('freeze-scroll');
         };
-        
+
     }
 };
