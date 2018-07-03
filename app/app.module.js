@@ -40,12 +40,8 @@
             component: "appBooks"
         })
         .state("books.detail", {
-            url: "/{id}",
+            url: "/{bookId}",
             component: "appBooksDetail"
-        })
-        .state("books.comments", {
-            url: "/{id}",
-            component: "appBooksComments"
         })
         .state("cart", {
             url: "/cart",
@@ -64,6 +60,7 @@
             component: "appAuthorDetail"
         })
         .state("author.book", {
+              url: "/{bookId}",
             component: "appBooksDetail"
         });
         
