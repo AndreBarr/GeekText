@@ -63,3 +63,7 @@ footer {
     padding-left: 8px;
     margin: 0 0 15px 15px;
 }
+
+.scroll-y{
+    overflow-y:scroll;
+}

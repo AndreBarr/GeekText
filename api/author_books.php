@@ -8,7 +8,8 @@ header('Content-Type: application/json');
 $id = $_GET["AuthorID"];
 $query = 'SELECT *
 		  FROM gt_books
-		  WHERE AuthorID = ' . $id;
+		  NATURAL JOIN gt_publishers
+		  WHERE AuthorID = 1';
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

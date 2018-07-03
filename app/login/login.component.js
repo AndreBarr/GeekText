@@ -12,7 +12,7 @@ const LoginComponent = {
             if ($ctrl.newPassword !== $ctrl.confirmedPassword)
                 return;
 
-            api.register($ctrl.newUsername, $ctrl.newPassword)
+            api.register($ctrl.newUsername, $ctrl.newPassword, $ctrl.newEmail)
                 .then(function (response) {
                     alert("Account has been created");
                     $state.go("home");

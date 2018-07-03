@@ -1,10 +1,10 @@
 <!--Just a place holder for now, will make this way prettier -Dariel -->
 <div class="modal-backdrop fade show"></div>
-<div class="modal d-block" tabindex="-1" role="dialog">
+<div class="modal d-block scroll-y" tabindex="-1" role="dialog">
     <div class="container" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ui-sref="books">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ui-sref="^">
                     <span aria-hidden="true">&times;</span>
                 </button>
 
@@ -24,7 +24,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span>4/5 Stars</span>
+                                <span>{{$ctrl.book.BookRating}}/5 Stars</span>
                                 <br />
 
                             </div>
@@ -52,19 +52,25 @@
                         <h5>Reviews</h5>
                     </div>
                 </div>
+                <div cass="row">
+                    <div class="col">
+                        <!--No backend logic for this-->
+                        <textarea rows="5" class="form-control form-group"   placeholder="Leave a review"></textarea>
+                        <button class="btn btn-primary form-group float-right" >Submit</button>
+                    </div>
+                </div>
                 <div class="row" ng-repeat="c in ($ctrl.comments) track by $index">
                     <div class="col">
                         <div class="post-comment">
-                            <div >{{c.UserName}}</div>
+                            <div >{{c.UserName}} &bull; <small class="text-muted">{{c.Rating}} Stars</small></div>
                             <div ng-if="c.UserName == null">Anonymous</div>
-                            <div class="text-muted"><small>{{c.IndividualRatingValue}}/5 Stars</small></div>
-                            <div>{{c.IndividualRatingComment}}</div>
+                            <div>{{c.Comment}}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" ui-sref="books">Close</button>
+                <button type="button" class="btn btn-secondary" ui-sref="^">Close</button>
             </div>
         </div>
     </div>

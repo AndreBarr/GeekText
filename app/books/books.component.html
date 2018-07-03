@@ -43,14 +43,12 @@
                 </a>
                 <div class="text-muted">
                     <a ui-sref="author({id: b.AuthorID})">
-                        <small>By: {{b.AuthorName}}</small>
+                        <span>By: {{b.AuthorName}}</span>
                     </a>
                 </div>
 
                 <div class="text-muted">Genre: {{b.Genre}}</div>
-                <!-- <a ui-sref="books.comments({id: b.BookID})">
-                    <small>Comments</small>
-                </a> -->
+                <div><small class="text-muted">{{b.BookRating}}/5 Stars</small></div>
             </div>
             <div class="col">
                 <span class="float-right">$ {{b.Price}}</span>

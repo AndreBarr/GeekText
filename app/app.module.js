@@ -62,6 +62,9 @@
         .state("author", {
             url: "/author/{id}",
             component: "appAuthorDetail"
+        })
+        .state("author.book", {
+            component: "appBooksDetail"
         });
         
     });

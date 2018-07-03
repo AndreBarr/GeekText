@@ -28,7 +28,7 @@ const ApiService = function($http, $window, $rootScope){
     function loadLogin() {
         var result = $window.localStorage.getItem(login_key);
 
-        if (result !== null || result !== undefined || !NaN(result)) {
+        if (result !== null && result !== undefined) {
             logIn(result);
         }
     }
@@ -59,7 +59,7 @@ const ApiService = function($http, $window, $rootScope){
 
     //Use for checking if user is logged in
     this.isLoggedIn = function(){
-        return userId !== -1;
+        return userId !== -1 || userId == null;
     }
 
     this.login = function(username, password){
@@ -74,9 +74,9 @@ const ApiService = function($http, $window, $rootScope){
         else
             return false;
     }
-    this.register = function (username, password) {
+    this.register = function (username, password, email) {
 
-        return _post("api/register.php", { username: username, password: password })
+        return _post("api/register.php", { username: username, password: password, email: email })
             .then(function (response) {
                 userId = response.data;
                 logIn(userId);
