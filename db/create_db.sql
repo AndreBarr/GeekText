@@ -1,11 +1,9 @@
 DROP DATABASE geek_text;
 CREATE DATABASE geek_text;
 
-CREATE TABLE `GT_SHOPPING_CART` (
+CREATE TABLE `GT_USER_PURCHASED` (
   UserID INT,
   BookID INT,
-  Quantity INT,
-  IsSFL BIT,
   KEY FK (UserID, BookID)
 );
 
@@ -21,14 +19,14 @@ CREATE TABLE GT_ORDERS (
 CREATE TABLE GT_PUBLISHERS (
   PublisherID INT NOT NULL AUTO_INCREMENT,
   PublisherName VARCHAR(255),
-  PublisherDescription VARCHAR(2000),
+  PublisherDescription VARCHAR(10000),
   PRIMARY KEY (PublisherID)
 );
 
 CREATE TABLE GT_BOOKS (
   BookID INT NOT NULL AUTO_INCREMENT,
   BookTitle VARCHAR(255),
-  BookDescription VARCHAR(2000),
+  BookDescription VARCHAR(10000),
   AuthorID INT,
   PublisherID INT,
   ReleaseDate DATE,
@@ -52,7 +50,7 @@ CREATE TABLE GT_USERS (
 CREATE TABLE GT_AUTHORS (
   AuthorID INT NOT NULL AUTO_INCREMENT,
   AuthorName VARCHAR(50),
-  AuthorBio VARCHAR(2000),
+  AuthorBio VARCHAR(10000),
   PRIMARY KEY (AuthorID)
 );
 

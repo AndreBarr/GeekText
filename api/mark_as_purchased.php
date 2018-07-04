@@ -1,8 +1,6 @@
 <?php
 
-/*
-	API call for the comments and their details. Dummy data until db is set up
-*/
+
 require('../config/config.php');
 require('../config/db.php');
 
@@ -12,7 +10,7 @@ $id = $_GET["BookID"];
 $userId = $_Get["UserID"];
 
 
-/*TODO: WHere to store marked as purchaseD? */
+/*TODO: WHere to store marked as purchased? */
 
 $query = '';
 $result = mysqli_query($conn, $query);
