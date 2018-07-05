@@ -33,7 +33,6 @@ CREATE TABLE GT_BOOKS (
   Genre VARCHAR(20),
   Price NUMERIC(16,2),
   BookCover VARCHAR(200),
-  BookRating INT DEFAULT 1,
   PRIMARY KEY (BookID),
   KEY FK (AuthorID, PublisherID)
 );

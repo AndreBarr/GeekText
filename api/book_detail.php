@@ -24,10 +24,15 @@ $query = 'SELECT gb.BookID
  				, gp.PublisherDescription
  				, gb.Price
 				, gb.BookCover
+				, IFNULL(gr.Rating, \'-\') AS Rating
 		  FROM gt_books AS gb 
 			LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID 
 			LEFT JOIN gt_publishers AS gp ON gp.PublisherID = gb.PublisherID 
-		  WHERE BookID = ' . $id;
+			LEFT JOIN (SELECT BookID, 
+	  					 ROUND(SUM(Rating)/COUNT(BookID), 2) AS Rating 
+					   FROM geek_text.gt_book_ratings
+					   GROUP BY BookID) AS gr ON gb.BookID = gr.BookID
+		  WHERE gb.BookID = ' . $id;		  	  
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

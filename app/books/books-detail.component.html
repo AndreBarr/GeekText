@@ -24,7 +24,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span>{{$ctrl.book.BookRating}}/5 Stars</span>
+                                <span>{{$ctrl.book.Rating}}/5 Stars</span>
                                 <br />
 
                             </div>
@@ -43,7 +43,7 @@
                 <div class="row form-group">
                     <div class="col">
                         <h5>Description</h5>
-                        {{$ctrl.book.BookDescription}}
+                        <p>{{$ctrl.book.BookDescription}}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -56,9 +56,11 @@
                     <div class="col">
                         <!--No backend logic for this-->
                         <textarea rows="5" class="form-control form-group"   placeholder="Leave a review"></textarea>
+                        <input type="checkbox" ng-model="string" name="Anonymous" ng-true-value="1" ng-false-value="0"> Leave review anonymously
                         <button class="btn btn-primary form-group float-right" >Submit</button>
                     </div>
                 </div>
+                <br><br>
                 <div class="row" ng-repeat="c in ($ctrl.comments) track by $index">
                     <div class="col">
                         <div class="post-comment">

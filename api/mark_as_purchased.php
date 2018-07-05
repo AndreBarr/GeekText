@@ -12,7 +12,7 @@ $userId = $_Get["UserID"];
 
 /*TODO: WHere to store marked as purchased? */
 
-$query = '';
+$query = 'INSERT INTO gt_user_purchased (UserID, BookID) VALUES (' . $id . ',' . $userId .')';
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

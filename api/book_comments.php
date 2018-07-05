@@ -19,7 +19,7 @@ $query = 'SELECT
 			u.UserID
 			FROM gt_book_ratings AS c
 			NATURAL JOIN gt_users AS u
-			WHERE BookID = '. $id;
+			WHERE c.BookID = '. $id;
 
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
