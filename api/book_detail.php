@@ -15,7 +15,6 @@ $id = $_GET["BookID"];
 $query = 'SELECT gb.BookID
  				, gb.BookTitle
  				, gb.BookDescription
-				, gb.BookRating
  				, gb.AuthorID
  				, ga.AuthorName
  				, ga.AuthorBio

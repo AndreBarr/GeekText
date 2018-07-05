@@ -14,7 +14,6 @@
 					, ga.AuthorName
 					, gb.Price
 					, gb.BookCover
-					, gb.BookRating
 					, gc.PublisherName
 					, gc.PublisherID
 					, IFNULL(gr.Rating, \'-\') AS Rating
