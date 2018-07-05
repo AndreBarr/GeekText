@@ -8,9 +8,9 @@
 	$query = 'SELECT gb.BookID
 					, gb.BookTitle
 					, gb.BookDescription
-					, gb.BookRating
 					, gb.AuthorID
 					, gb.Genre
+					, gb.AuthorID
 					, ga.AuthorName
 					, gb.Price
 					, gb.BookCover

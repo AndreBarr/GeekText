@@ -19,6 +19,7 @@ $userId = rand();
 
 $query = 'INSERT INTO gt_users (UserID, UserName, Email, Hash, Salt) VALUES (' . $userId . ', \''. $data->username . '\', \'' . $data->	email .'\', \''. $password . '\', ' . $salt . ')';
 $result = mysqli_query($conn, $query) or die(mysqli_error());
+
 if($result){
 	echo $userId;
 }

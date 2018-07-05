@@ -1,11 +1,11 @@
 <div class="container content-main">
 
-        <div class="col">
-            <h1>{{$ctrl.auth.AuthorName}}</h1>
-        </div>
-        <div class="col">
-            <p>{{$ctrl.auth.AuthorBio}}</p>
-        </div>
+    <div class="col">
+        <h1>{{$ctrl.auth.AuthorName}}</h1>
+    </div>
+    <div class="col">
+        <p>{{$ctrl.auth.AuthorBio}}</p>
+    </div>
 
 
     <div class="col mb-4">
@@ -20,7 +20,6 @@
                 <a ui-sref="author.book({id: $ctrl.auth.AuthorID, bookId: b.BookID})"><h4 class="font-weight-light">{{b.BookTitle}}</h4></a>
                 <div>Genre: {{b.Genre}}</div>
                 <div>Publisher: {{b.PublisherName}}</div>
-                <div><small class="text-muted">{{b.BookRating}}/5 Stars</small></div>
             </div>
             <div class="col">
                 <span class="float-right">$ {{b.Price}}</span>

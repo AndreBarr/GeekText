@@ -12,7 +12,6 @@
 </head>
 <body>
 
-    <!--These elements will be filled in by angular-->
     <app-navbar></app-navbar>
     <ui-view></ui-view>
     <app-footer></app-footer>
@@ -22,7 +21,6 @@
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/angular-bundled.js"></script>
 
-    <!--Our angular scripts -->
     <!-- All component scripts need to be declared before app.module.js (thats the entry point for angular)-->
     <script src="app/api/api.service.js"></script>
     <script src="app/footer/footer.component.js"></script>
@@ -35,7 +33,9 @@
     <script src="app/books/books-comments.component.js"></script>
     <script src="app/login/login.component.js"></script>
     <script src="app/author/author-detail.component.js"></script>
-    <script src="app/profile/profile.component.js"></script>
+    <script src="app/profile/profile.component.js"></script>	
+	<script src="app/common/rating.directive.js"></script>
+	<script src="app/common/authorize.directive.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>

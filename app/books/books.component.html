@@ -48,10 +48,17 @@
                 </div>
 
                 <div class="text-muted">Genre: {{b.Genre}}</div>
-                <div><small class="text-muted">{{b.Rating}}/5 Stars</small></div>
+                <div><small class="text-muted">Published by: {{b.PublisherName}}</small></div>
+                <span class="text-muted" ng-if="b.Rating != '-'">
+                    <rating ng-model="b.Rating"/>
+                </span>
             </div>
             <div class="col">
-                <span class="float-right">$ {{b.Price}}</span>
+                <span class="float-right">
+                    <span>
+                        $ {{b.Price}}
+                    </span>
+                </span>
             </div>
         </div>
         <div class="row">
