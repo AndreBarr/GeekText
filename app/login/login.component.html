@@ -1,58 +1,66 @@
 <div class="container content-main">
     <div class="row justify-content-center">
-		<div class="col col-sm-6 col-md-4">
-			<h1>GeekText</h1>
-       		<form>  
-				<div class="form-group">
-					<label for="email" class="hidden-label">Email</label>
-					<input class="form-control" type="email" id="email" name="email" ng-model="$ctrl.username" placeholder="Email">
-				</div>
-				<div class="form-group">
-					<label for="password" class="hidden-label">Password</label>
-					<input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password">
-				</div>
-				<div class="form-group">
-					<!-- Contains Temporary ui-sref to Profile Page -->
-					<input class= "btn btn-primary" ng-click="$ctrl.onSubmit()" ui-sref="profile" type="submit" value="Sign In">
-					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccountModal">
-					  Create Account
-					</button>
+        <div class="col col-sm-6 col-md-4">
+            <h1>GeekText</h1>
+            <form>
+                <div class="form-group">
+                    <label for="email" class="hidden-label">Email</label>
+                    <input class="form-control" type="email" id="email" name="email" ng-model="$ctrl.username" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="hidden-label">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <!-- Contains Temporary ui-sref to Profile Page -->
+                    <input class="btn btn-primary" ng-click="$ctrl.onSubmit()" ui-sref="profile" type="submit" value="Sign In">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccountModal">
+                        Create Account
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-					<!-- Modal -->
-					<div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="createAccountModal" aria-hidden="true">
-					  <div class="modal-dialog modal-dialog-centered" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="modalTitle">Create Account</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					        <div class="form-group">
-								<label for="email" class="hidden-label">Email</label>
-								<input class="form-control" type="email" id="newEmail" name="email" ng-model="$ctrl.newUsername" placeholder="Email">
-							</div>
-							<div class="form-group">
-								<label for="password" class="hidden-label">Password</label>
-								<input class="form-control" type="password" id="newPassword" name="password" ng-model="$ctrl.newPassword" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="password" class="hidden-label">Confirm Password</label>
-								<input class="form-control" type="password" id="confirmedPassword" name="password" ng-model="$ctrl.confirmedPassword" placeholder="Confirm Password">
-							</div>
-						  </div>
-					      <div class="modal-footer">
-					      	<span class="modal-body" ng-if="$ctrl.newPassword != $ctrl.confirmedPassword">Passwords do not match</span>
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary" ng-click="$ctrl.onCreate()" ng-disabled="$ctrl.newPassword != $ctrl.confirmedPassword">Create</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-				</div>
-        	</form>
-		</div>
+<!-- Modal -->
+<!--Removed bootstrap opening cause it broke when you changed pages-->
+<div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="createAccountModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-form name="$ctrl.register">
+                    <div class="form-group">
+                        <label for="email" class="hidden-label">Username</label>
+                        <input class="form-control" type="text" name="username" ng-model="$ctrl.newUsername" required placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="hidden-label">Email</label>
+                        <input class="form-control" type="text" name="email" ng-model="$ctrl.newEmail" required placeholder="Email">
+                        <span ng-if="$ctrl.register.email.$error.email">Invalid email</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="hidden-label">Password</label>
+                        <input class="form-control" type="password" name="password" ng-model="$ctrl.newPassword" required placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="hidden-label">Confirm Password</label>
+                        <input class="form-control" type="password" name="confirmpassword" ng-model="$ctrl.confirmedPassword" required placeholder="Confirm Password">
+                    </div>
+                </ng-form>
+            </div>
+            <div class="modal-footer">
+                <span class="modal-body" ng-if="$ctrl.newPassword != $ctrl.confirmedPassword">Passwords do not match</span>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.onCreate()" ng-disabled="$ctrl.newPassword != $ctrl.confirmedPassword">Create</button>
+            </div>
+        </div>
     </div>
 </div>

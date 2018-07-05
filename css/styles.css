@@ -57,3 +57,13 @@ footer {
 	overflow: hidden;
 	visibility: hidden;
 }
+.post-comment {
+    border-left: 2px solid;
+    border-color: #0089ff;
+    padding-left: 8px;
+    margin: 0 0 15px 15px;
+}
+
+.scroll-y{
+    overflow-y:scroll;
+}

@@ -10,17 +10,17 @@ header('Content-Type: application/json');
 
 $id = $_GET["BookID"];
 
-$query = 'SELECT ga.BookID
-				 , ga.BookTitle
-			     , ga.BookDescription
-			     , gbr.RatingValue
-			     , gbrd.UserName
-			     , gbrd.IndividualRatingValue
-			     , gbrd.IndividualRatingComment
-			FROM gt_books AS ga
-				LEFT JOIN gt_book_ratings AS gbr ON ga.BookRatingID = gbr.BookRatingID
-			    LEFT JOIN gt_book_rating_details AS gbrd ON gbr.BookRatingID = gbrd.BookRatingID
-			WHERE ga.BookID = '. $id;
+$query = 'SELECT 
+			c.BookRatingID,
+			c.BookID,
+			c.Rating,
+			c.Comment,
+			u.UserName,
+			u.UserID
+			FROM gt_book_ratings AS c
+			NATURAL JOIN gt_users AS u
+			WHERE c.BookID = '. $id;
+
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

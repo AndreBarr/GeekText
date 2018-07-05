@@ -1,8 +1,13 @@
 ﻿<div class="container content-main">
-    <h1>Books</h1>
-    
-    <div class="container">
-        <div class="row">
+
+    <div class="row">
+        <div class="col">
+            <h1>Books</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-3">
             <div class="form-horizontal">
                 <div class="form-group">
                     <label>Search</label>
@@ -10,43 +15,58 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="form-horizontal">
-                <div class="form-group">                        
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filter">
-                       Filters
-                    </button>
-                    </p>
-                    <div class="collapse" id="filter">
-                        <div class="card card-body">
-                            Some Filters Here
-                            <input />
-                        </div>
+    </div>
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filter">
+                    Filters
+                </button>
+                <div class="collapse" id="filter">
+                    <div class="card card-body">
+                        Some Filters Here
+                        <input />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
-            <div class="row">
-                <div class="col">
-                    <h5>{{b.BookTitle}}</h3>
-                        <!--Removed book description as it was too much text to display-->
-                    <span class="text-muted">By {{b.AuthorName}}</p>
-                    <a ui-sref="books.detail({id: b.BookID})">View</a>
-                     | <a ui-sref="books.comments({id: b.BookID})">Comments</a>
+    <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
+        <div class="row">
+            <div class="col-4 col-sm-4 col-md-2">
+                <img ng-src="{{b.BookCover}}" class="img-fluid" />
+            </div>
+            <div class="col-6">
+                <a ui-sref="books.detail({bookId: b.BookID})">
+                    <h4 class="font-weight-light">{{b.BookTitle}}</h4>
+                </a>
+                <div class="text-muted">
+                    <a ui-sref="author({id: b.AuthorID})">
+                        <span>By: {{b.AuthorName}}</span>
+                    </a>
                 </div>
+
+                <div class="text-muted">Genre: {{b.Genre}}</div>
+                <div><small class="text-muted">Published by: {{b.PublisherName}}</small></div>
+                <span class="text-muted" ng-if="b.Rating != '-'">
+                    <rating ng-model="b.Rating"/>
+                </span>
+            </div>
             <div class="col">
-                <span class="float-right">$ {{b.Price}}</p>
+                <span class="float-right">
+                    <span>
+                        $ {{b.Price}}
+                    </span>
+                </span>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <hr/>
+                <hr />
             </div>
         </div>
+
     </div>
+    <ui-view></ui-view>
 </div>
-<ui-view></ui-view>
-</div>
-    
