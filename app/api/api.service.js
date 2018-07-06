@@ -64,7 +64,14 @@ const ApiService = function ($http, $window, $rootScope) {
     }
 
     this.login = function (username, password) {
-        return _post("api/login.php", { username: username, password: password });
+        return _post("api/login.php", { username: username, password: password })
+            .then(function(response) {
+                userId = response.data;
+                logIn(userId);
+                return response;
+            }, function (response) {
+                return response;
+            });
     }
     this.logOut = function () {
         logOut();
