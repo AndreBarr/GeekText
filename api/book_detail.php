@@ -17,10 +17,8 @@ $query = 'SELECT gb.BookID
  				, gb.BookDescription
  				, gb.AuthorID
  				, ga.AuthorName
- 				, ga.AuthorBio
- 				, gb.PublisherID
+ 			 	, gb.PublisherID
  				, gp.PublisherName
- 				, gp.PublisherDescription
  				, gb.Price
 				, gb.BookCover
 				, IFNULL(gr.Rating, \'-\') AS Rating
@@ -31,7 +29,13 @@ $query = 'SELECT gb.BookID
 	  					 ROUND(SUM(Rating)/COUNT(BookID), 2) AS Rating 
 					   FROM geek_text.gt_book_ratings
 					   GROUP BY BookID) AS gr ON gb.BookID = gr.BookID
-		  WHERE gb.BookID = ' . $id;		  	  
+		  WHERE gb.BookID = ' . $id;	
+		  
+		  /*
+			 , ga.AuthorBio
+			 , gp.PublisherDescription
+		  */
+
 $result = mysqli_query($conn, $query);
 $fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

@@ -11,7 +11,6 @@
                 <div class="row">
                     <div class="col-12 col-sm-3">
                         <img class="img-fluid mb-4" ng-src="{{$ctrl.book.BookCover}}" />
-
                     </div>
                     <div class="col">
                         <div class="row">
@@ -24,7 +23,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span>{{$ctrl.book.Rating}}/5 Stars</span>
+                                <span ng-if="$ctrl.book.Rating != '-'">{{$ctrl.book.Rating}}/5 Stars</span>
                                 <br />
 
                             </div>
@@ -34,7 +33,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                              <button class="btn btn-link float-right">Mark as Purchased</button>
+                                <div authorize>
+                                    <button class="btn btn-link float-right">Mark as Purchased</button>
+                                </div>
                             </div>
                         </div>
 
@@ -53,18 +54,24 @@
                     </div>
                 </div>
                 <div cass="row">
-                    <div class="col">
+                    <div class="col mb-5">
                         <!--No backend logic for this-->
-                        <textarea rows="5" class="form-control form-group"   placeholder="Leave a review"></textarea>
+                        <textarea rows="5" class="form-control form-group" placeholder="Leave a review"></textarea>
                         <input type="checkbox" ng-model="string" name="Anonymous" ng-true-value="1" ng-false-value="0"> Leave review anonymously
-                        <button class="btn btn-primary form-group float-right" >Submit</button>
+                        <button class="btn btn-primary form-group float-right">Submit</button>
                     </div>
                 </div>
-                <br><br>
+
                 <div class="row" ng-repeat="c in ($ctrl.comments) track by $index">
                     <div class="col">
                         <div class="post-comment">
-                            <div >{{c.UserName}} &bull; <small class="text-muted">{{c.Rating}} Stars</small></div>
+                            <div>
+                                {{c.UserName}}
+                                <br />
+                                <small class="text-muted">
+                                    <rating ng-model="c.Rating" class="small" />
+                                </small>
+                            </div>
                             <div ng-if="c.UserName == null">Anonymous</div>
                             <div>{{c.Comment}}</div>
                         </div>

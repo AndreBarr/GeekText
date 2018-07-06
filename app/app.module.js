@@ -15,18 +15,14 @@
     module.component('appLogin', LoginComponent);
     module.component('appProfile', ProfileComponent);
     module.component('appAuthorDetail', AuthorDetailComponent);
+    module.directive('rating', RatingDirective);
+    module.directive('authorize', AuthorizeDirective);
 
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
-        // $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true); //would need to configure web server to work with html5 mode
         $urlRouterProvider.otherwise('/');
 
-        /*
-          List all URLs for angular here SEE: Angular ui-router docs
-          Angular makes the website a SPA (single page app)
-          So the whole web page is never reloaded, only the content inside the page is replaced
-          Angular handles replacing the content based on the URL
-        */
         $stateProvider.state("home", {
             url: "/",
             component: 'appHome'
