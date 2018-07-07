@@ -17,6 +17,7 @@
     module.component('appAuthorDetail', AuthorDetailComponent);
     module.directive('rating', RatingDirective);
     module.directive('authorize', AuthorizeDirective);
+    //module.directive('reviewable', ReviewableDirective);
 
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {

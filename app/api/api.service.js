@@ -61,7 +61,18 @@ const ApiService = function ($http, $window, $rootScope) {
     //Use for checking if user is logged in
     this.isLoggedIn = function () {
         return userId !== -1;
-    }
+    };
+
+    this.submitReview = function(comment, rating, isAnon, userId, bookId) {
+        return _get("api/submit_review.php", { Comment: comment, Rating: rating, Anon: isAnon, UserID: userId, BookID: bookId})
+    };
+
+    /*this.isReviewed = function(userId, bookId) {
+        if (this.isLoggedIn())
+            return _get("api/reviewed.php", {UserID: userId, BookID: bookId});
+        else
+            return null
+    }*/
 
     this.login = function (username, password) {
         return _post("api/login.php", { username: username, password: password })
