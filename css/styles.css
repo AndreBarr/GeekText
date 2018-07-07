@@ -41,6 +41,10 @@
   margin-top: 10px;
 }
 
+/*Login-Form Validation*/
+.formValidation {
+  color: red;
+}
 
 /*footer*/
 footer {
