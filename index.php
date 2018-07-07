@@ -36,7 +36,6 @@
     <script src="app/profile/profile.component.js"></script>	
 	<script src="app/common/rating.directive.js"></script>
 	<script src="app/common/authorize.directive.js"></script>
-    <script src="app/common/reviewable.directive.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>
