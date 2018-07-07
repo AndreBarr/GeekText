@@ -39,5 +39,9 @@ const BooksDetailComponent = {
                 });
         };
 
+        $ctrl.markPurchased = function() {
+
+        };
+
     }
 };

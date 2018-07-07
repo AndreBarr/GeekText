@@ -59,14 +59,14 @@
                             <!--No backend logic for this-->
                             <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment"></textarea>
                             <select class="form-group float-left" ng-model="$ctrl.rating">
-                                <option selected="selected" value="0">0</option>
+                                <option selected value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select> / 5 Stars
-                            <input type="checkbox" ng-model="string" name="Anonymous" ng-true-value="1" ng-false-value="0" ng-model="$ctrl.isAnon"> Leave review anonymously
+                            <input type="checkbox" name="Anonymous" ng-true-value="1" ng-false-value="0" ng-model="$ctrl.isAnon"> Leave review anonymously
                             <button type="button" class="btn btn-primary form-group float-right" ng-click="$ctrl.submitReview()">Submit</button>
                             
                         </div>

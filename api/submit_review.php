@@ -10,9 +10,16 @@ $bID = $_GET["BookID"];
 $uID = $_GET["UserID"];
 $rating = $_GET["Rating"];
 $comment = $_GET["Comment"];
+$anon = $_GET["Anon"];
 
-$query = 'INSERT INTO gt_book_ratings(BookID, UserID, Rating, Comment) 
-		  VALUES ('.$bID.', '.$uID.', '.$rating.', \''.$comment.'\')';
+if ($anon = 1) {
+	$query = 'INSERT INTO gt_book_ratings(BookID, UserID, Rating, Comment) 
+			  VALUES ('.$bID.', 1111, '.$rating.', \''.$comment.'\')';
+} else {
+
+	$query = 'INSERT INTO gt_book_ratings(BookID, UserID, Rating, Comment) 
+			  VALUES ('.$bID.', '.$uID.', '.$rating.', \''.$comment.'\')';
+}
 
 $result = mysqli_query($conn, $query);
 
