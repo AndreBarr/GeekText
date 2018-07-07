@@ -4,7 +4,23 @@ const LoginComponent = {
         var $ctrl = this;
 
         $ctrl.onSubmit = function () {
-            api.login($ctrl.username, $ctrl.password);
+            api.login($ctrl.username, $ctrl.password)
+                .then(function (response) {
+                    if (response.data === -1)
+                    {
+                        alert("Username or Password was incorrect");
+                    }
+                    else if (response.data === -2)
+                    {
+                        alert("One or more of the input fields is empty");
+                    }
+                    else
+                    {
+                        $state.go("home");
+                    }
+                }, function (response) {
+                    //404 not found
+                });
         };
 
         $ctrl.onCreate = function () {

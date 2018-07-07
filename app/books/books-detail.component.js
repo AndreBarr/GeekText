@@ -3,6 +3,7 @@ const BooksDetailComponent = {
     controller: function ($stateParams, api) {
         var $ctrl = this;
         var bookId = $stateParams.bookId;
+        var userId = api.getUserId();
         $ctrl.book = {};
         $ctrl.comments = {};
         let html = angular.element('html');
@@ -28,6 +29,18 @@ const BooksDetailComponent = {
 
         this.$onDestroy = function () {
             html.removeClass('freeze-scroll');
+        };
+
+        $ctrl.submitReview = function() {
+            api.submitReview($ctrl.comment, $ctrl.rating, $ctrl.isAnon, userId, bookId)
+                .then(function (response) {
+                    alert("Review Submitted!");
+                    location.reload();
+                });
+        };
+
+        $ctrl.markPurchased = function() {
+
         };
 
     }
