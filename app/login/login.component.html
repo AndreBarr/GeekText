@@ -11,6 +11,8 @@
                     <label for="password" class="hidden-label">Password</label>
                     <input class="form-control" type="password" id="password" name="password" ng-model="$ctrl.password" placeholder="Password" required>
                 </div>
+                <span class="formValidation modal-body" ng-if="$ctrl.incorrect">Username or Password was incorrect</span>
+                <span class="formValidation modal-body" ng-if="$ctrl.notFound">Username was not found in the database</span>
                 <div class="form-group">
                     <!-- Contains Temporary ui-sref to Profile Page -->
                     <input class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="$ctrl.onSubmit()" type="submit" value="Sign In">

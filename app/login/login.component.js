@@ -8,14 +8,20 @@ const LoginComponent = {
                 .then(function (response) {
                     if (response.data === -1)
                     {
-                        alert("Username or Password was incorrect");
+                        $ctrl.incorrect = true;
+                        $ctrl.notFound = false;
+                        //alert("Username or Password was incorrect");
                     }
                     else if (response.data === -2)
                     {
-                        alert("Username was not found in the database");
+                        $ctrl.notFound = true;
+                        $ctrl.incorrect = false;
+                        //alert("Username was not found in the database");
                     }
                     else
                     {
+                        $ctrl.incorrect = false;
+                        $ctrl.notFound = false;
                         $state.go("home");
                     }
                 }, function (response) {
