@@ -60,7 +60,7 @@ const ApiService = function ($http, $window, $rootScope) {
 
     //Use for checking if user is logged in
     this.isLoggedIn = function () {
-        return userId !== -1;
+        return ((userId !== -1) && (userId !== -2));
     };
 
     this.submitReview = function(comment, rating, isAnon, userId, bookId) {

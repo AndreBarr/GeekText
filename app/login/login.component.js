@@ -4,7 +4,7 @@ const LoginComponent = {
         var $ctrl = this;
 
         $ctrl.onSubmit = function () {
-            api.login($ctrl.username, $ctrl.password)
+                api.login($ctrl.username, $ctrl.password)
                 .then(function (response) {
                     if (response.data === -1)
                     {
@@ -12,7 +12,7 @@ const LoginComponent = {
                     }
                     else if (response.data === -2)
                     {
-                        alert("One or more of the input fields is empty");
+                        alert("Username was not found in the database");
                     }
                     else
                     {
