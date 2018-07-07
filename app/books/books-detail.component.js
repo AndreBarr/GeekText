@@ -32,11 +32,19 @@ const BooksDetailComponent = {
         };
 
         $ctrl.submitReview = function() {
-            api.submitReview($ctrl.comment, $ctrl.rating, $ctrl.isAnon, userId, bookId)
+            if ($ctrl.isAnon == 1) {
+                api.submitReview($ctrl.comment, $ctrl.rating, 1, userId, bookId)
                 .then(function (response) {
                     alert("Review Submitted!");
                     location.reload();
                 });
+            } else {
+                api.submitReview($ctrl.comment, $ctrl.rating, 0, userId, bookId)
+                    .then(function (response) {
+                        alert("Review Submitted!");
+                        location.reload();
+                });
+            }
         };
 
         $ctrl.markPurchased = function() {

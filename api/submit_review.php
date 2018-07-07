@@ -12,7 +12,7 @@ $rating = $_GET["Rating"];
 $comment = $_GET["Comment"];
 $anon = $_GET["Anon"];
 
-if ($anon = 1) {
+if ($anon == 1) {
 	$query = 'INSERT INTO gt_book_ratings(BookID, UserID, Rating, Comment) 
 			  VALUES ('.$bID.', 1111, '.$rating.', \''.$comment.'\')';
 } else {
