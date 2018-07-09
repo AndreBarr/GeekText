@@ -26,7 +26,11 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <input placeholder=Search class="form-control" ng-model="search" />
+                <form ng-submit="$ctrl.onSearch()">
+                    <input placeholder="Search" class="form-control" ng-model="$ctrl.search" />
+                    <input type="submit" value="Submit" hidden/>
+                </form>
+                <div ng-repeat="b in ($ctrl.books | filter: search) track by $index">
             </li>
             <li class="nav-item" ui-sref-active="active" ng-if="$ctrl.logged">
                 <a class="nav-link" ui-sref="profile">&nbsp; Profile &nbsp;</a>

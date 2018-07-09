@@ -1,8 +1,10 @@
 ﻿const BooksComponent = {
     templateUrl: "/app/books/books.component.html",
-    controller: function (api) {
+    controller: function (api, $stateParams) {
         var $ctrl = this;
-        $ctrl.books = []; 
+        $ctrl.books = [];
+        $ctrl.search= $stateParams.search;
+        console.log($stateParams); 
 
         //Get books list from web api
         api.getBooks().then(function(response) {

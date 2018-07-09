@@ -33,7 +33,10 @@
         })
         .state("books", {
             url: "/books",
-            component: "appBooks"
+            component: "appBooks",
+            params: {
+                search:''
+            }
         })
         .state("books.detail", {
             url: "/{bookId}",
