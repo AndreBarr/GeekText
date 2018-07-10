@@ -6,9 +6,10 @@ const BooksDetailComponent = {
         var userId = api.getUserId();
         $ctrl.book = {};
         $ctrl.comments = {};
+        $ctrl.rating = 0;
         let html = angular.element('html');
 
-        //Get books list from web api
+        //TODO Wrap in a function, then call from other places to refresh
         api.getBookDetail(bookId).then(function (response) {
             $ctrl.book = response.data;
         }, function () {

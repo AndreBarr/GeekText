@@ -57,9 +57,9 @@
                     <div cass="row">
                         <div class="col mb-5">
                             <!--No backend logic for this-->
-                            <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment"></textarea>
+                            <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment" ng-maxlength="1000"></textarea>
                             <select class="form-group float-left" ng-model="$ctrl.rating">
-                                <option selected value="0">0</option>
+                                <option ng-selected="true" value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
