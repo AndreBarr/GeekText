@@ -1,67 +1,64 @@
 DROP DATABASE geek_text;
 CREATE DATABASE geek_text;
 
-CREATE TABLE `GT_USER_PURCHASED` (
-  UserID INT,
-  BookID INT,
-  KEY FK (UserID, BookID)
-);
+CREATE TABLE `gt_user_purchased` (
+  `UserID` int(11) DEFAULT NULL,
+  `BookID` int(11) NOT NULL,
+  `DatePurchased` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`BookID`),
+  KEY `FK` (`UserID`,`BookID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE GT_ORDERS (
-  OrderID INT NOT NULL AUTO_INCREMENT,
-  UserID INT,
-  BookID INT,
-  Quantity INT,
-  PRIMARY KEY (OrderID),
-  KEY FK (UserID, BookID)
-);
+CREATE TABLE `gt_publishers` (
+  `PublisherID` int(11) NOT NULL AUTO_INCREMENT,
+  `PublisherName` varchar(255) DEFAULT NULL,
+  `PublisherDescription` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`PublisherID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-CREATE TABLE GT_PUBLISHERS (
-  PublisherID INT NOT NULL AUTO_INCREMENT,
-  PublisherName VARCHAR(255),
-  PublisherDescription VARCHAR(10000),
-  PRIMARY KEY (PublisherID)
-);
 
-CREATE TABLE GT_BOOKS (
-  BookID INT NOT NULL AUTO_INCREMENT,
-  BookTitle VARCHAR(255),
-  BookDescription VARCHAR(10000),
-  AuthorID INT,
-  PublisherID INT,
-  ReleaseDate DATE,
-  Genre VARCHAR(20),
-  Price NUMERIC(16,2),
-  BookCover VARCHAR(200),
-  PRIMARY KEY (BookID),
-  KEY FK (AuthorID, PublisherID)
-);
+CREATE TABLE `gt_books` (
+  `BookID` int(11) NOT NULL AUTO_INCREMENT,
+  `BookTitle` varchar(255) DEFAULT NULL,
+  `BookDescription` varchar(10000) DEFAULT NULL,
+  `AuthorID` int(11) DEFAULT NULL,
+  `PublisherID` int(11) DEFAULT NULL,
+  `ReleaseDate` date DEFAULT NULL,
+  `Genre` varchar(20) DEFAULT NULL,
+  `Price` decimal(16,2) DEFAULT NULL,
+  `BookCover` varchar(200) DEFAULT NULL,
+  `BookRating` int(11) DEFAULT '1',
+  PRIMARY KEY (`BookID`),
+  KEY `FK` (`AuthorID`,`PublisherID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-CREATE TABLE GT_USERS (
-  UserID INT,
-  UserName VARCHAR(50),
-  Email VARCHAR(255),
-  Hash VARCHAR(2000),
-  Salt VARCHAR(2000),
-  PRIMARY KEY (UserID, UserName)
-);
+CREATE TABLE `gt_users` (
+  `UserID` int(11) NOT NULL,
+  `UserName` varchar(50) NOT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Hash` varchar(2000) DEFAULT NULL,
+  `Salt` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`UserID`,`UserName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE GT_AUTHORS (
-  AuthorID INT NOT NULL AUTO_INCREMENT,
-  AuthorName VARCHAR(50),
-  AuthorBio VARCHAR(10000),
-  PRIMARY KEY (AuthorID)
-);
+CREATE TABLE `gt_authors` (
+  `AuthorID` int(11) NOT NULL AUTO_INCREMENT,
+  `AuthorName` varchar(50) DEFAULT NULL,
+  `AuthorBio` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`AuthorID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-CREATE TABLE GT_BOOK_RATINGS (
-  BookRatingID INT NOT NULL AUTO_INCREMENT,
-  BookID INT,
-  UserID INT,
-  Rating INT,
-  Comment VARCHAR(255),
-  PRIMARY KEY (BookRatingID),
-  KEY FK (BookID, UserID)
-);
+
+CREATE TABLE `gt_book_ratings` (
+  `BookRatingID` int(11) NOT NULL AUTO_INCREMENT,
+  `BookID` int(11) DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL,
+  `Rating` int(11) DEFAULT NULL,
+  `Comment` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`BookRatingID`),
+  KEY `FK` (`BookID`,`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+
 
 
 INSERT INTO gt_authors (AuthorID, AuthorName, AuthorBio) VALUES (NULL, 'George R Martin', 'Born in 1948, fantasy writer George R. R. Martin grew up in Bayonne, New Jersey. He developed a love for writing early on. His first novel, Dying of the Light, debuted in 1977. In 1996, he published his first installment of the A Song of Ice and Fire series. Martin became a best-selling author in 2005 with the fourth title A Feast for Crows and again in 2011 with the fifth A Dance with Dragons.
