@@ -22,12 +22,14 @@ $query = 'SELECT gb.BookID
 	 				, gb.PublisherID
 	 				, gp.PublisherName
 	 				, gp.PublisherDescription
+	 				, gg.Genre
 	 				, gb.Price
 					, gb.BookCover
 					, IFNULL(gr.Rating, 0.00) AS Rating
 			  FROM gt_books AS gb 
 				LEFT JOIN gt_authors AS ga ON gb.AuthorID = ga.AuthorID 
 				LEFT JOIN gt_publishers AS gp ON gp.PublisherID = gb.PublisherID 
+				LEFT JOIN gt_book_genres AS gg ON gg.BookGenreID = gb.Genre
 				LEFT JOIN (SELECT BookID, 
 		  					 ROUND(SUM(Rating)/COUNT(BookID), 2) AS Rating 
 						   FROM geek_text.gt_book_ratings
