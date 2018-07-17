@@ -33,8 +33,8 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <div authorize>
-                                    <button class="btn btn-link float-right">Mark as Purchased</button>
+                                <div authorize ng-if="$ctrl.isPurchased[0] == 0">
+                                    <button class="btn btn-link float-right" ng-click="$ctrl.markPurchased()">Mark as Purchased</button>
                                 </div>
                             </div>
                         </div>
@@ -55,8 +55,7 @@
                 </div>
                 <div authorize>
                     <div cass="row">
-                        <div class="col mb-5">
-                            <!--No backend logic for this-->
+                        <div class="col mb-5" ng-if="$ctrl.isPurchased[0] == 1">
                             <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment" ng-maxlength="1000"></textarea>
                             <select class="form-group float-left" ng-model="$ctrl.rating" ng-options="n for n in $ctrl.ratings"></select> / 5 Stars
                             <input type="checkbox" name="Anonymous" ng-true-value="1" ng-false-value="0" ng-model="$ctrl.isAnon"> Leave review anonymously

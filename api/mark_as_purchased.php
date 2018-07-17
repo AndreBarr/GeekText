@@ -1,22 +1,18 @@
 <?php
 
 
-require('../config/config.php');
-require('../config/db.php');
+	require('../config/config.php');
+	require('../config/db.php');
 
-header('Content-Type: application/json');
+	header('Content-Type: application/json');
 
-$id = $_GET["BookID"];
-$userId = $_Get["UserID"];
+	$id = $_GET["BookID"];
+	$userId = $_GET["UserID"];
 
+	$query = 'INSERT INTO gt_user_purchased (UserID, BookID, DatePurchased) VALUES (' . $userId . ',' . $id .', NOW() )';
+	$result = mysqli_query($conn, $query);
 
-/*TODO: WHere to store marked as purchased? */
-
-$query = 'INSERT INTO gt_user_purchased (UserID, BookID) VALUES (' . $id . ',' . $userId .')';
-$result = mysqli_query($conn, $query);
-$fdata = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-echo json_encode($fdata);
+	echo $result;
 
 
 ?>

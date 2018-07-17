@@ -64,15 +64,16 @@ const ApiService = function ($http, $window, $rootScope) {
     };
 
     this.submitReview = function(comment, rating, isAnon, userId, bookId) {
-        return _get("api/submit_review.php", { Comment: comment, Rating: rating, Anon: isAnon, UserID: userId, BookID: bookId})
+        return _get("api/submit_review.php", { Comment: comment, Rating: rating, Anon: isAnon, UserID: userId, BookID: bookId});
     };
 
-    /*this.isReviewed = function(userId, bookId) {
-        if (this.isLoggedIn())
-            return _get("api/reviewed.php", {UserID: userId, BookID: bookId});
-        else
-            return null
-    }*/
+    this.markPurchased = function(userId, bookId) {
+        return _get("api/mark_as_purchased.php", {UserID: userId, BookID: bookId});
+    };
+
+    this.checkPurchased = function(userId, bookId) {
+        return _get("api/check_purchased.php", {UserID: userId, BookID: bookId});
+    };
 
     this.login = function (username, password) {
         return _post("api/login.php", { username: username, password: password })

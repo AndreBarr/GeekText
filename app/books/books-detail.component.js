@@ -9,6 +9,7 @@ const BooksDetailComponent = {
         $ctrl.rating = 0;
         $ctrl.isAnon = 0;
         $ctrl.ratings = [0, 1, 2, 3, 4, 5];
+        $ctrl.isPurchased = [];
         let html = angular.element('html');
 
         function getData() {
@@ -18,7 +19,11 @@ const BooksDetailComponent = {
                 //404 not found
             });
 
+            api.checkPurchased(userId, bookId).then(function(response) {
+                $ctrl.isPurchased = response.data;
+            }, function() {
 
+            });
             //Get books list from web api
             api.getComments(bookId).then(function (response) {
                 $ctrl.comments = response.data;
@@ -49,7 +54,11 @@ const BooksDetailComponent = {
         };
 
         $ctrl.markPurchased = function () {
-
+            api.markPurchased(userId, bookId)
+                .then(function(response) {
+                    getData();
+                    alert("Marked as Purchased!");
+                });
         };
     }
 };
