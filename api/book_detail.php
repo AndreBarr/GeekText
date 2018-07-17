@@ -24,6 +24,7 @@ $query = 'SELECT gb.BookID
 	 				, gp.PublisherDescription
 	 				, gg.Genre
 	 				, gb.Price
+					, gb.ReleaseDate
 					, gb.BookCover
 					, IFNULL(gr.Rating, 0.00) AS Rating
 			  FROM gt_books AS gb 

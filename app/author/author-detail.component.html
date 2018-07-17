@@ -14,9 +14,9 @@
     <div ng-repeat="b in ($ctrl.books | filter: search) track by $index" class="col">
         <div class="row">
             <div class="col-4 col-sm-4 col-md-2">
-                <img ng-src="{{b.BookCover}}" class="img-fluid" />
+                <zoom-img src="{{b.BookCover}}"/>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <a ui-sref="author.book({id: $ctrl.auth.AuthorID, bookId: b.BookID})"><h4 class="font-weight-light">{{b.BookTitle}}</h4></a>
                 <div>Genre: {{b.Genre}}</div>
                 <div>Publisher: {{b.PublisherName}}</div>

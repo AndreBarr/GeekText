@@ -30,12 +30,12 @@
     <script src="app/books/books.component.js"></script>
     <script src="app/books/books-detail.component.js"></script>
     <script src="app/cart/cart.component.js"></script>
-    <script src="app/books/books-comments.component.js"></script>
     <script src="app/login/login.component.js"></script>
     <script src="app/author/author-detail.component.js"></script>
     <script src="app/profile/profile.component.js"></script>	
 	<script src="app/common/rating.directive.js"></script>
 	<script src="app/common/authorize.directive.js"></script>
+	<script src="app/common/zoomimg.directive.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>

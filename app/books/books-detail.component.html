@@ -1,4 +1,3 @@
-<!--Just a place holder for now, will make this way prettier -Dariel -->
 <div class="modal-backdrop fade show"></div>
 <div class="modal d-block scroll-y" tabindex="-1" role="dialog">
     <div class="container" role="document">
@@ -9,8 +8,8 @@
                 </button>
 
                 <div class="row">
-                    <div class="col-12 col-sm-3">
-                        <img class="img-fluid mb-4" ng-src="{{$ctrl.book.BookCover}}" />
+                    <div class="col-12 col-sm-3 mb-4"">
+                        <zoom-img src="{{$ctrl.book.BookCover}}">
                     </div>
                     <div class="col">
                         <div class="row">
@@ -19,13 +18,14 @@
                                 <a ui-sref="author({id: $ctrl.book.AuthorID})">
                                     <small>By: {{$ctrl.book.AuthorName}}</small>
                                 </a>
+                                <br/>
+                                <small>Released: {{$ctrl.book.ReleaseDate}}</small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <span ng-if="$ctrl.book.Rating != '-'">{{$ctrl.book.Rating}}/5 Stars</span>
-                                <br />
-
+                                <rating ng-model="$ctrl.book.Rating">
                             </div>
                             <div class="col text-right">
                                 <h4>$ {{$ctrl.book.Price}}</h4>

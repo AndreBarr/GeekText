@@ -10,23 +10,24 @@
     module.component('appAbout', AboutComponent);
     module.component('appBooks', BooksComponent);
     module.component('appBooksDetail', BooksDetailComponent);
-    module.component('appBooksComments', BooksCommentsComponent);
     module.component('appCart', CartComponent);
     module.component('appLogin', LoginComponent);
     module.component('appProfile', ProfileComponent);
     module.component('appAuthorDetail', AuthorDetailComponent);
     module.directive('rating', RatingDirective);
     module.directive('authorize', AuthorizeDirective);
+    module.directive('zoomImg', ZoomImgDirective);
 
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
         // $locationProvider.html5Mode(true); //would need to configure web server to work with html5 mode
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/books');
 
-        $stateProvider.state("home", {
-            url: "/",
-            component: 'appHome'
-        })
+        $stateProvider
+        //.state("home", {
+        //    url: "/",
+        //    component: 'appBooks'
+        //})
         .state("about", {
             url: "/about",
             component: "appAbout"

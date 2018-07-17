@@ -76,3 +76,12 @@ footer {
 .scroll-y{
     overflow-y:scroll;
 }
+
+.zoom-img{
+    transition:0.3s var(--bezier-motion);
+    transform: none;
+}
+.zoom-img:hover{
+    box-shadow: var(--shadow-d4);
+    transform: scale();
+}

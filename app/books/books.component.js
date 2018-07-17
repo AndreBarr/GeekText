@@ -4,7 +4,6 @@
         var $ctrl = this;
         $ctrl.books = [];
         $ctrl.search= $stateParams.search;
-        console.log($stateParams); 
 
         //Get books list from web api
         api.getBooks().then(function(response) {

@@ -35,7 +35,7 @@
     <div ng-repeat="b in ($ctrl.books | filter: $ctrl.search) track by $index">
         <div class="row">
             <div class="col-4 col-sm-4 col-md-2">
-                <img ng-src="{{b.BookCover}}" class="img-fluid" />
+                <zoom-img src="{{b.BookCover}}"/>
             </div>
             <div class="col-6">
                 <a ui-sref="books.detail({bookId: b.BookID})">
