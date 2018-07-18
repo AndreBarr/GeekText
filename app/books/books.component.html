@@ -9,7 +9,7 @@
         <div class="form-horizontal">
             <div class="form-group">
                 <label>Search</label>
-                <input class="form-control" ng-model="$ctrl.search" />
+                <input class="form-control" ng-model="$ctrl.search" ng-change="$ctrl.onSearch()"/>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
     </div>
 
     <!--Books List-->
-    <div ng-repeat="b in ($ctrl.books | filter: $ctrl.search) track by $index">
+    <div ng-repeat="b in $ctrl.books track by $index">
         <div class="col">
             <div class="row">
                 <div class="col-4 col-sm-4 col-md-2">

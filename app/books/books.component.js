@@ -36,11 +36,17 @@
                     $ctrl.filter[prop] = undefined;
             }
 
+
+
             //filter results
             result = $filter('filter')(result, $ctrl.filter);
 
+            //search results
+            result = $filter('filter')(result, $ctrl.search);
+
             //page results
             $ctrl.page = $ctrl.page.CreateUpdatedPaginator(result.length);
+           
             result = $filter('paginator')(result, $ctrl.page);
 
             $ctrl.books = result;
@@ -53,12 +59,17 @@
 
         this.onResultPerPage = function (count) {
             $ctrl.page.Size = count;
-            $ctrl.page.Number = 0;
             $ctrl.updateFilter();
+            $ctrl.page.Number = 0;
         }
 
         this.onPage = function () {
             $window.scrollTo(0, 0);
+            $ctrl.updateFilter();
+        }
+
+        this.onSearch = function () {
+            $ctrl.page.Number = 0;
             $ctrl.updateFilter();
         }
     }
