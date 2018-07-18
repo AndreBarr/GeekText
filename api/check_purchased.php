@@ -16,4 +16,4 @@
 	$result = mysqli_query($conn, $query);
 	$fdata = mysqli_fetch_all($result, MYSQLI_NUM);
 
-	echo json_encode($fdata[0]);
+	echo json_encode($fdata[0][0]);

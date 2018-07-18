@@ -8,7 +8,7 @@
                 </button>
 
                 <div class="row">
-                    <div class="col-12 col-sm-3 mb-4"">
+                    <div class="col-12 col-sm-3 mb-4" ">
                         <zoom-img src="{{$ctrl.book.BookCover}}">
                     </div>
                     <div class="col">
@@ -18,12 +18,14 @@
                                 <a ui-sref="author({id: $ctrl.book.AuthorID})">
                                     <small>By: {{$ctrl.book.AuthorName}}</small>
                                 </a>
-                                <br/>
-                                <small>Released: {{$ctrl.book.ReleaseDate}}</small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
+                                <small>Released: {{$ctrl.book.ReleaseDate | date: 'shortDate'}}</small>
+                                <br />
+                                <small>Published by: {{$ctrl.book.PublisherName}}</small>
+                                <br />
                                 <span ng-if="$ctrl.book.Rating != '-'">{{$ctrl.book.Rating}}/5 Stars</span>
                                 <rating ng-model="$ctrl.book.Rating">
                             </div>
@@ -32,9 +34,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div authorize ng-if="$ctrl.isPurchased[0] == 0">
+                            <div class="col" authorize>
+                                <div ng-if="$ctrl.isPurchased == '0'">
                                     <button class="btn btn-link float-right" ng-click="$ctrl.markPurchased()">Mark as Purchased</button>
+                                </div>
+                                <div ng-if="$ctrl.isPurchased == '1'">
+                                    <small class="text-danger">You've already purchased this book.</small>
                                 </div>
                             </div>
                         </div>
@@ -55,14 +60,14 @@
                 </div>
                 <div authorize>
                     <div cass="row">
-                        <div class="col mb-5" ng-if="$ctrl.isPurchased[0] == 1">
+                        <div class="col mb-5" ng-if="$ctrl.isPurchased == '0'">
                             <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment" ng-maxlength="1000"></textarea>
                             <select class="form-group float-left" ng-model="$ctrl.rating" ng-options="n for n in $ctrl.ratings"></select> / 5 Stars
                             <input type="checkbox" name="Anonymous" ng-true-value="1" ng-false-value="0" ng-model="$ctrl.isAnon"> Leave review anonymously
                             <button type="button" class="btn btn-primary form-group float-right" ng-click="$ctrl.submitReview()">Submit</button>
                         </div>
                     </div>
-                </div>    
+                </div>
                 <div class="row" ng-repeat="c in ($ctrl.comments) track by $index">
                     <div class="col">
                         <div class="post-comment">
@@ -76,6 +81,11 @@
                             <div ng-if="c.UserName == null">Anonymous</div>
                             <div>{{c.Comment}}</div>
                         </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="$ctrl.comments.length == 0">
+                    <div class="col">
+                       <span>This book has no reviews. Be the first to review!</span>
                     </div>
                 </div>
             </div>

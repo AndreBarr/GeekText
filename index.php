@@ -36,6 +36,9 @@
 	<script src="app/common/rating.directive.js"></script>
 	<script src="app/common/authorize.directive.js"></script>
 	<script src="app/common/zoomimg.directive.js"></script>
+	<script src="app/paginator/paginator.directive.js"></script>
+	<script src="app/paginator/paginator.factory.js"></script>
+	<script src="app/paginator/paginator.filter.js"></script>
     <script src="app/app.module.js"></script>
 </body>
 </html>

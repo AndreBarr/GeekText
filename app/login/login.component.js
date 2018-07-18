@@ -22,7 +22,7 @@ const LoginComponent = {
                     {
                         $ctrl.incorrect = false;
                         $ctrl.notFound = false;
-                        $state.go("home");
+                        $state.go("books");
                     }
                 }, function (response) {
                     //404 not found
@@ -37,7 +37,7 @@ const LoginComponent = {
             api.register($ctrl.newUsername, $ctrl.newPassword, $ctrl.newEmail)
                 .then(function (response) {
                     alert("Account has been created");
-                    $state.go("home");
+                    $state.go("books");
                 }, function (response) {
                     alert("Error creating account.");
                 });

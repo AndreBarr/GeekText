@@ -46,6 +46,10 @@ const ApiService = function ($http, $window, $rootScope) {
         return _get("api/book_detail.php", { BookID: bookId });
     };
 
+    this.getBookGenres = function () {
+        return _get("api/book_genres.php");
+    };
+
     this.getComments = function (bookId) {
         return _get("api/book_comments.php", { BookID: bookId });
     };
@@ -104,6 +108,10 @@ const ApiService = function ($http, $window, $rootScope) {
             }, function (response) {
                 return response;
             });
+    }
+
+    this.getMyProfileBooks = function () {
+        return _get("api/profile_books.php", { UserID: userId } );
     }
 
 };

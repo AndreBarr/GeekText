@@ -15,15 +15,17 @@ const BooksDetailComponent = {
         function getData() {
             api.getBookDetail(bookId).then(function (response) {
                 $ctrl.book = response.data;
+
             }, function () {
                 //404 not found
             });
 
-            api.checkPurchased(userId, bookId).then(function(response) {
+            api.checkPurchased(userId, bookId).then(function (response) {
                 $ctrl.isPurchased = response.data;
-            }, function() {
-
+            }, function () {
+                //404 not found
             });
+
             //Get books list from web api
             api.getComments(bookId).then(function (response) {
                 $ctrl.comments = response.data;
@@ -41,7 +43,7 @@ const BooksDetailComponent = {
             html.removeClass('freeze-scroll');
         };
 
-        $ctrl.submitReview = function () {
+        this.submitReview = function () {
             if ($ctrl.isAnon != 1)
                 $ctrl.IsAnon = 0;
 
@@ -53,9 +55,9 @@ const BooksDetailComponent = {
                 });
         };
 
-        $ctrl.markPurchased = function () {
+        this.markPurchased = function () {
             api.markPurchased(userId, bookId)
-                .then(function(response) {
+                .then(function (response) {
                     getData();
                     alert("Marked as Purchased!");
                 });

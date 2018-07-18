@@ -17,6 +17,9 @@
     module.directive('rating', RatingDirective);
     module.directive('authorize', AuthorizeDirective);
     module.directive('zoomImg', ZoomImgDirective);
+    module.directive('paginator', PaginatorDirective);
+    module.factory('paginator', PaginatorFactory);
+    module.filter('paginator', PaginatorFilter);
 
     //Configure angular here
     module.config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -24,46 +27,50 @@
         $urlRouterProvider.otherwise('/books');
 
         $stateProvider
-        //.state("home", {
-        //    url: "/",
-        //    component: 'appBooks'
-        //})
-        .state("about", {
-            url: "/about",
-            component: "appAbout"
-        })
-        .state("books", {
-            url: "/books",
-            component: "appBooks",
-            params: {
-                search:''
-            }
-        })
-        .state("books.detail", {
-            url: "/{bookId}",
-            component: "appBooksDetail"
-        })
-        .state("cart", {
-            url: "/cart",
-            component: "appCart"
-        })
-        .state("login", {
-            url: "/login",
-            component: "appLogin"
-        })
-        .state("profile", {
-            url: "/profile",
-            component: "appProfile"
-        })  
-        .state("author", {
-            url: "/author/{id}",
-            component: "appAuthorDetail"
-        })
-        .state("author.book", {
-              url: "/{bookId}",
-            component: "appBooksDetail"
-        });
-        
+            //.state("home", {
+            //    url: "/",
+            //    component: 'appBooks'
+            //})
+            .state("about", {
+                url: "/about",
+                component: "appAbout"
+            })
+            .state("books", {
+                url: "/books",
+                component: "appBooks",
+                params: {
+                    search: ''
+                }
+            })
+            .state("books.detail", {
+                url: "/{bookId}",
+                component: "appBooksDetail"
+            })
+            .state("cart", {
+                url: "/cart",
+                component: "appCart"
+            })
+            .state("login", {
+                url: "/login",
+                component: "appLogin"
+            })
+            .state("profile", {
+                url: "/profile",
+                component: "appProfile"
+            })
+            .state("profile.book", {
+                url: "/{bookId}",
+                component: "appBooksDetail"
+            })
+            .state("author", {
+                url: "/author/{id}",
+                component: "appAuthorDetail"
+            })
+            .state("author.book", {
+                url: "/{bookId}",
+                component: "appBooksDetail"
+            });
+
     });
 
 })();

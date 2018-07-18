@@ -1,72 +1,91 @@
 ﻿<div class="container content-main">
 
-    <div class="row">
-        <div class="col">
-            <h1>Books</h1>
-        </div>
+    <div class="col">
+        <h1>Books</h1>
     </div>
 
-    <div class="row">
-        <div class="col col-sm-3">
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <label>Search</label>
-                    <input class="form-control" ng-model="$ctrl.search" />
-                </div>
+    <!--Search-->
+    <div class="col col-sm-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label>Search</label>
+                <input class="form-control" ng-model="$ctrl.search" />
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="form-horizontal">
-            <div class="form-group">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filter">
-                    Filters
-                </button>
-                <div class="collapse" id="filter">
-                    <div class="card card-body">
-                        Some Filters Here
-                        <input />
+
+    <!--Filter-->
+    <div class="col form-horizontal">
+        <div class="form-group">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filter">
+                Filters <i class="material material-icons align-middle">keyboard_arrow_down</i>
+            </button>
+            <div class="collapse" id="filter">
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="col col-sm-4 form-group">
+                            <label>Genre</label>
+                            <select class="form-control" ng-options="n.Genre as n.Genre for n in $ctrl.genres" ng-model="$ctrl.filter.Genre" ng-change="$ctrl.updateFilter()">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-4 form-group">
+                            <label>Results Per Page</label>
+                            <br />
+                            <button class="btn btn-sm" ng-class="{'btn-primary': (n === $ctrl.page.Size), 'btn-link': (n !== $ctrl.page.Size)}" ng-repeat="n in $ctrl.resultsPerPage" ng-click="$ctrl.onResultPerPage(n)">{{n}}</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary float-right" ng-click="$ctrl.clearFilter()">Clear</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!--Books List-->
     <div ng-repeat="b in ($ctrl.books | filter: $ctrl.search) track by $index">
-        <div class="row">
-            <div class="col-4 col-sm-4 col-md-2">
-                <zoom-img src="{{b.BookCover}}"/>
-            </div>
-            <div class="col-6">
-                <a ui-sref="books.detail({bookId: b.BookID})">
-                    <h4 class="font-weight-light">{{b.BookTitle}}</h4>
-                </a>
-                <div class="text-muted">
-                    <a ui-sref="author({id: b.AuthorID})">
-                        <span>By: {{b.AuthorName}}</span>
-                    </a>
+        <div class="col">
+            <div class="row">
+                <div class="col-4 col-sm-4 col-md-2">
+                    <zoom-img src="{{b.BookCover}}" />
                 </div>
+                <div class="col-6">
+                    <a ui-sref="books.detail({bookId: b.BookID})">
+                        <h4 class="font-weight-light">{{b.BookTitle}}</h4>
+                    </a>
+                    <div class="text-muted">
+                        <a ui-sref="author({id: b.AuthorID})">
+                            <span>By: {{b.AuthorName}}</span>
+                        </a>
+                    </div>
 
-                <div class="text-muted">Genre: {{b.Genre}}</div>
-                <div><small class="text-muted">Published by: {{b.PublisherName}}</small></div>
-                <span class="text-muted" ng-if="b.Rating != '-'">
-                    <rating ng-model="b.Rating"/>
-                </span>
-            </div>
-            <div class="col">
-                <span class="float-right">
-                    <span>
-                        $ {{b.Price}}
+                    <div class="text-muted">Genre: {{b.Genre}}</div>
+                    <div><small class="text-muted">Published by: {{b.PublisherName}}</small></div>
+                    <span class="text-muted" ng-if="b.Rating != '-'">
+                        <rating ng-model="b.Rating" />
                     </span>
-                </span>
+                </div>
+                <div class="col">
+                    <span class="float-right">
+                        <span>
+                            $ {{b.Price}}
+                        </span>
+                    </span>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <hr />
-            </div>
+        <div class="col">
+            <hr />
         </div>
-
     </div>
+    <div class="col">
+        <paginator ng-model="$ctrl.page" on-page="$ctrl.onPage()" show-pages="true"></paginator>
+    </div>
+
     <ui-view></ui-view>
 </div>
