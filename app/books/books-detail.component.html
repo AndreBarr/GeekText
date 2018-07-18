@@ -60,7 +60,7 @@
                 </div>
                 <div authorize>
                     <div cass="row">
-                        <div class="col mb-5" ng-if="$ctrl.isPurchased == '0'">
+                        <div class="col mb-5" ng-if="$ctrl.isPurchased == '1'">
                             <textarea rows="5" class="form-control form-group" placeholder="Leave a review" ng-model="$ctrl.comment" ng-maxlength="1000"></textarea>
                             <select class="form-group float-left" ng-model="$ctrl.rating" ng-options="n for n in $ctrl.ratings"></select> / 5 Stars
                             <input type="checkbox" name="Anonymous" ng-true-value="1" ng-false-value="0" ng-model="$ctrl.isAnon"> Leave review anonymously
