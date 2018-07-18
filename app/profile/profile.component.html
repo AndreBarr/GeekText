@@ -1,16 +1,86 @@
 <div class="container content-main">
 	<h1>Profile Page</h1>
 	<div class="col col-sm-6 col-md-4">
-		<ul class="nav flex-column flex-sm-column">
-		 	<li class="nav-item">
-		    	<a class="nav-link active" ui-sref="profile">DashBoard</a>
-		  	</li>
-		  	<li class="nav-item">
-		    	<a class="nav-link" ui-sref="profile">Your Orders</a>
-		  	</li>
-		  	<li class="nav-item">
-		    	<a class="nav-link" ui-sref="cart">Shopping Cart</a>
-		  	</li>
-		</ul>
+		    <h3>Your Information</h3>
+		    <p>Username: 
+		    	<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeUser">Change</button></p>
+		    	<div class="collapse" id="changeUser">
+		    		<form name="changeUserForm">
+					    <ng-form>
+		                    <div class="form-group">
+		                        <label for="username" class="hidden-label">New Username</label>
+		                        <input class="form-control" type="text" name="username" ng-model="$ctrl.newUsername" required placeholder="New Username">
+		                    </div>
+		                </ng-form>
+		            </form>
+	                <button type="button" class="btn-sm btn-primary" ng-disabled="changeUserForm.$invalid" ng-click="$ctrl.changeUsername()">Change Username</button>
+				</div>
+		    <p>Email: 
+		    	<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeEmail">Change</button></p>
+			    <div class="collapse" id="changeEmail">
+					<form name="changeEmailForm">
+					    <ng-form name="$ctrl.validateEmail">
+		                    <div class="form-group">
+		                        <label for="email" class="hidden-label">New Email</label>
+		                        <input class="form-control" type="text" name="email" ng-model="$ctrl.newEmail" required placeholder="New Email">
+		                        <span ng-if="$ctrl.validateEmail.email.$error.email">Invalid email</span>
+		                    </div>
+		                </ng-form>
+		            </form>
+	                <button type="button" class="btn-sm btn-primary" ng-disabled="changeEmailForm.$invalid" ng-click="$ctrl.changeEmail()">Change Email</button>
+				</div>
+		    <p>Shipping Address: 
+		    	<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeSAddr">Change</button></p>
+			    <div class="collapse" id="changeSAddr">
+					<form name="changeShippingForm">
+					    <ng-form name="$ctrl.validateEmail">
+		                    <div class="form-group">
+		                        <label for="shipping" class="hidden-label">New Shipping Address</label>
+		                        <input class="form-control" type="text" name="shipping" ng-model="$ctrl.newShipping" required placeholder="New Shipping Address">
+		                    </div>
+		                </ng-form>
+		            </form>
+	                <button type="button" class="btn-sm btn-primary" ng-disabled="changeShippingForm.$invalid" ng-click="$ctrl.changeShipping()">Change Shipping</button>
+				</div>
+		    <p>Billing Address: 
+		    	<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeBAddr">Change</button></p>
+		    	<div class="collapse" id="changeBAddr">
+					<form name="changeBillingForm">
+					    <ng-form>
+		                    <div class="form-group">
+		                        <label for="billing" class="hidden-label">New Billing Address</label>
+		                        <input class="form-control" type="text" name="billing" ng-model="$ctrl.newBilling" required placeholder="New Billing Address">
+		                    </div>
+		                </ng-form>
+		            </form>
+	                <button type="button" class="btn-sm btn-primary" ng-disabled="changeBillingForm.$invalid" ng-click="$ctrl.changeBilling()">Change Billing</button>
+				</div>
+			<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changePass">Change Password</button></p>
+			<div class="collapse" id="changePass">
+				<form name="changePassForm">
+					    <ng-form>
+					    	<div class="form-group">
+		                        <label for="password" class="hidden-label">Old Password</label>
+		                        <input class="form-control" type="text" name="oldPassword" ng-model="$ctrl.oldPassword" required placeholder="Old Password">
+		                    </div>
+		                    <div class="form-group">
+		                        <label for="password" class="hidden-label">New Password</label>
+		                        <input class="form-control" type="text" name="newPassword" ng-model="$ctrl.newPassword" required placeholder="New Password">
+		                    </div>
+		                    <div class="form-group">
+		                        <label for="password" class="hidden-label">Confirm Password</label>
+		                        <input class="form-control" type="text" name="confirmedPassword" ng-model="$ctrl.confirmNewPassword" required placeholder="Confirm New Password">
+		                    </div>
+		                </ng-form>
+		            </form>
+		            <span ng-if="$ctrl.newPassword != $ctrl.confirmNewPassword">Passwords do not match</span>
+	                <button type="button" class="btn-sm btn-primary" ng-disabled="$ctrl.newPassword != $ctrl.confirmedPassword" ng-click="$ctrl.changePassword()">Change Password</button>
+			</div>
+		<button class="btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#collapseHistory">Order History</button>
+		<div class="collapse" id="collapseHistory">
+		  	<div class="card card-body">
+		    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+		 	</div>
+		</div>
 	</div>
 </div>
