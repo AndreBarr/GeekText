@@ -13,10 +13,18 @@ const ProfileComponent = {
             });
         }
 
+        function getUserInfo() {
+            api.getUserInfo().then(function (response) {
+                $ctrl.myInfo = response.data;
+            }, function (response) {
+                //404 not found
+            });
+        }
 
         this.$onInit = function () {
 
             getData();
+            getUserInfo();
 
         }
 

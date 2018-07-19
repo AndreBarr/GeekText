@@ -6,88 +6,55 @@
 
     <!--Profile Info-->
     <div class="col">
-        <p>
-            Username:
-            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeUser">Change</button>
-        </p>
-        <div class="collapse" id="changeUser">
-            <form name="changeUserForm">
-                <ng-form>
-                    <div class="form-group">
-                        <label for="username" class="hidden-label">New Username</label>
-                        <input class="form-control" type="text" name="username" ng-model="$ctrl.newUsername" required placeholder="New Username">
-                    </div>
-                </ng-form>
-            </form>
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="changeUserForm.$invalid" ng-click="$ctrl.changeUsername()">Change Username</button>
-        </div>
-        <p>
-            Email:
-            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeEmail">Change</button>
-        </p>
-        <div class="collapse" id="changeEmail">
-            <form name="changeEmailForm">
-                <ng-form name="$ctrl.validateEmail">
-                    <div class="form-group">
-                        <label for="email" class="hidden-label">New Email</label>
-                        <input class="form-control" type="text" name="email" ng-model="$ctrl.newEmail" required placeholder="New Email">
-                        <span ng-if="$ctrl.validateEmail.email.$error.email">Invalid email</span>
-                    </div>
-                </ng-form>
-            </form>
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="changeEmailForm.$invalid" ng-click="$ctrl.changeEmail()">Change Email</button>
-        </div>
-        <p>
-            Shipping Address:
-            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeSAddr">Change</button>
-        </p>
-        <div class="collapse" id="changeSAddr">
-            <form name="changeShippingForm">
-                <ng-form name="$ctrl.validateEmail">
-                    <div class="form-group">
-                        <label for="shipping" class="hidden-label">New Shipping Address</label>
-                        <input class="form-control" type="text" name="shipping" ng-model="$ctrl.newShipping" required placeholder="New Shipping Address">
-                    </div>
-                </ng-form>
-            </form>
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="changeShippingForm.$invalid" ng-click="$ctrl.changeShipping()">Change Shipping</button>
-        </div>
-        <p>
-            Billing Address:
-            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changeBAddr">Change</button>
-        </p>
-        <div class="collapse" id="changeBAddr">
-            <form name="changeBillingForm">
-                <ng-form>
-                    <div class="form-group">
-                        <label for="billing" class="hidden-label">New Billing Address</label>
-                        <input class="form-control" type="text" name="billing" ng-model="$ctrl.newBilling" required placeholder="New Billing Address">
-                    </div>
-                </ng-form>
-            </form>
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="changeBillingForm.$invalid" ng-click="$ctrl.changeBilling()">Change Billing</button>
-        </div>
-        <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#changePass">Change Password</button></p>
-        <div class="collapse" id="changePass">
-            <form name="changePassForm">
-                <ng-form>
-                    <div class="form-group">
-                        <label for="password" class="hidden-label">Old Password</label>
-                        <input class="form-control" type="text" name="oldPassword" ng-model="$ctrl.oldPassword" required placeholder="Old Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="hidden-label">New Password</label>
-                        <input class="form-control" type="text" name="newPassword" ng-model="$ctrl.newPassword" required placeholder="New Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="hidden-label">Confirm Password</label>
-                        <input class="form-control" type="text" name="confirmedPassword" ng-model="$ctrl.confirmNewPassword" required placeholder="Confirm New Password">
-                    </div>
-                </ng-form>
-            </form>
-            <span ng-if="$ctrl.newPassword != $ctrl.confirmNewPassword">Passwords do not match</span>
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="$ctrl.newPassword != $ctrl.confirmedPassword" ng-click="$ctrl.changePassword()">Change Password</button>
-        </div>
+        <form name="changeUserForm" ng-submit="$ctrl.changeUsername()">
+            <div class="form-group">
+                <label for="username" >Username: </label>
+                <input class="form-control" type="text" name="username" ng-model="$ctrl.myInfo.UserName" required placeholder="New Username">
+            </div>
+        </form>
+        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="changeUserForm.$invalid" ng-click="$ctrl.changeUsername()">Change Username</button>
+
+        <form ng-submit="ctrl.changeEmail()" name="$ctrl.validateEmail">
+                <div class="form-group">
+                    <label for="email" class="hidden-label">New Email</label>
+                    <input class="form-control" type="text" name="email" ng-model="$ctrl.newEmail" required placeholder="New Email">
+                    <span ng-if="$ctrl.validateEmail.email.$error.email">Invalid email</span>
+                </div>
+        </form>
+        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="$ctrl.validateEmail.$invalid" ng-click="$ctrl.changeEmail()">Change Email</button>
+
+        <form name="changeShippingForm" ng-submit="$ctrl.changeShipping()">
+            <div class="form-group">
+                <label for="shipping" class="hidden-label">New Shipping Address</label>
+                <input class="form-control" type="text" name="shipping" ng-model="$ctrl.newShipping" required placeholder="New Shipping Address">
+            </div>           
+		</form>
+        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="changeShippingForm.$invalid" ng-click="$ctrl.changeShipping()">Change Shipping</button>
+
+        <form name="changeBillingForm" ng-submit="$ctrl.changeBilling()">
+            <div class="form-group">
+                <label for="billing" class="hidden-label">New Billing Address</label>
+                <input class="form-control" type="text" name="billing" ng-model="$ctrl.newBilling" required placeholder="New Billing Address">
+            </div>
+        </form>
+        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="changeBillingForm.$invalid" ng-click="$ctrl.changeBilling()">Change Billing</button>
+
+        <form name="changePassForm" ng-submit="$ctrl.changePassword()">
+            <div class="form-group">
+                <label for="password" class="hidden-label">Old Password</label>
+                <input class="form-control" type="text" name="oldPassword" ng-model="$ctrl.oldPassword" required placeholder="Old Password">
+            </div>
+            <div class="form-group">
+                <label for="password" class="hidden-label">New Password</label>
+                <input class="form-control" type="text" name="newPassword" ng-model="$ctrl.newPassword" required placeholder="New Password">
+            </div>
+            <div class="form-group">
+                <label for="password" class="hidden-label">Confirm Password</label>
+                <input class="form-control" type="text" name="confirmedPassword" ng-model="$ctrl.confirmNewPassword" required placeholder="Confirm New Password">
+            </div>
+        </form>
+        <span ng-if="$ctrl.newPassword != $ctrl.confirmNewPassword">Passwords do not match</span>
+        <button type="button" class="btn btn-sm btn-primary" ng-disabled="($ctrl.newPassword != $ctrl.confirmedPassword) || changePassForm.$invalid" ng-click="$ctrl.changePassword()">Change Password</button>
     </div>
 
     <!--Order History-->

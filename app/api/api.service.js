@@ -114,4 +114,8 @@ const ApiService = function ($http, $window, $rootScope) {
         return _get("api/profile_books.php", { UserID: userId } );
     }
 
+    this.getUserInfo = function () {
+        return _get("api/profile_info.php", { UserID: userId } );
+    }
+
 };

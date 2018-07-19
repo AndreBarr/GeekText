@@ -46,6 +46,11 @@
   color: red;
 }
 
+/*Profile-Info Change Btn*/
+.infoBtn {
+  margin-bottom: 10px;
+}
+
 /*footer*/
 footer {
   background-color: darkgrey; 
