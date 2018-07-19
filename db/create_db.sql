@@ -3,11 +3,10 @@ CREATE DATABASE geek_text;
 USE geek_text;
 
 CREATE TABLE `gt_user_purchased` (
-  `UserID` int(11) DEFAULT NULL,
+  `UserID` int(11) NOT NULL,
   `BookID` int(11) NOT NULL,
   `DatePurchased` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`BookID`),
-  KEY `FK` (`UserID`,`BookID`)
+  PRIMARY KEY (`BookID`, `UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `gt_publishers` (
@@ -116,7 +115,7 @@ INSERT INTO gt_books (BookID, AuthorID, PublisherID, BookTitle, BookDescription,
 
 A CLASH OF KINGS
 
-A comet the color of blood and flame cuts across the sky. And from the ancient citadel of Dragonstone to the forbidding shores of Winterfell, chaos reigns. Six factions struggle for control of a divided land and the Iron Throne of the Seven Kingdoms, preparing to stake their claims through tempest, turmoil, and war. It is a tale in which brother plots against brother and the dead rise to walk in the night. Here a princess masquerades as an orphan boy; a knight of the mind prepares a poison for a treacherous sorceress; and wild men descend from the Mountains of the Moon to ravage the countryside. Against a backdrop of incest and fratricide, alchemy and murder, victory may go to the men and women possessed of the coldest steel...and the coldest hearts. For when kings clash, the whole land trembles.', '1998-11-16', 'Fantasy', 14.40, '/img/cover_gameofthrones02.jpg');
+A comet the color of blood and flame cuts across the sky. And from the ancient citadel of Dragonstone to the forbidding shores of Winterfell, chaos reigns. Six factions struggle for control of a divided land and the Iron Throne of the Seven Kingdoms, preparing to stake their claims through tempest, turmoil, and war. It is a tale in which brother plots against brother and the dead rise to walk in the night. Here a princess masquerades as an orphan boy; a knight of the mind prepares a poison for a treacherous sorceress; and wild men descend from the Mountains of the Moon to ravage the countryside. Against a backdrop of incest and fratricide, alchemy and murder, victory may go to the men and women possessed of the coldest steel...and the coldest hearts. For when kings clash, the whole land trembles.', '1998-11-16', 31, 14.40, '/img/cover_gameofthrones02.jpg');
 
 INSERT INTO gt_books (BookID, AuthorID, PublisherID, BookTitle, BookDescription, ReleaseDate, Genre, Price, BookCover) VALUES 
   (3, '1', '1', 'Game Of Thrones: A Storm of Swords', 'HBOs hit series A GAME OF THRONES is based on George R R Martins internationally bestselling series A SONG OF ICE AND FIRE, the greatest fantasy epic of the modern age. A STORM OF SWORDS: STEEL AND SNOW is the FIRST part of the third volume in the series. Martin has captured the imagination of millions Guardian Winter approaches Westeros like an angry beast. The Seven Kingdoms are divided by revolt and blood feud. In the northern wastes, a horde of hungry, savage people steeped in the dark magic of the wilderness is poised to invade the Kingdom of the North where Robb Stark wears his new-forged crown. And Robbs defences are ranged against the South, the land of the cunning and cruel Lannisters, who have his younger sisters in their power. Throughout Westeros, the war for the Iron Throne rages more fiercely than ever, but if the Wall is breached, no king will live to claim it.', '2000-04-15', 31, 16.79, '/img/cover_gameofthrones03.jpg');
