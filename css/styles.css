@@ -91,6 +91,7 @@ footer {
     border: none;
     padding: 0.3rem 0.5rem;
     display:block;
+    cursor: pointer;
 }
 
 .pagination > .active > a,
