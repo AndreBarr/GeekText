@@ -9,6 +9,7 @@ $id = $_GET["AuthorID"];
 $query = 'SELECT *
 		  FROM gt_books
 		  NATURAL JOIN gt_publishers
+		  NATURAL JOIN gt_book_genres
 		  WHERE AuthorID = '. $id;
 
 $result = mysqli_query($conn, $query);
