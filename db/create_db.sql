@@ -66,6 +66,25 @@ CREATE TABLE `gt_book_genres` (
   PRIMARY KEY (`BookGenreID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `gt_user_detail` (
+  `UserID` int(11) NOT NULL,
+  `RealName` varchar(50) NOT NULL,
+  `HomeAddr` varchar(255) DEFAULT NULL,
+  `HomeCity` varchar(2000) DEFAULT NULL,
+  `HomeState` varchar(2000) DEFAULT NULL,
+  `HomeZIP` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gt_user_shippings` (
+  `UserID` int(11) NOT NULL,
+  `ShippingAddr` varchar(255) DEFAULT NULL,
+  `ShippingCity` varchar(2000) DEFAULT NULL,
+  `ShippingState` varchar(2000) DEFAULT NULL,
+  `ShippingZIP` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`UserID`, `ShippingAddr`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (1, 'Science fiction');
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (2, 'Satire');
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (3, 'Drama');
