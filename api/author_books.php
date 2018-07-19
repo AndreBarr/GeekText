@@ -6,9 +6,16 @@ require('../config/db.php');
 header('Content-Type: application/json');
 
 $id = $_GET["AuthorID"];
-$query = 'SELECT *
-		  FROM gt_books
-		  NATURAL JOIN gt_publishers
+$query = 'SELECT gb.BookID
+				, gb.BookTitle
+				, gb.AuthorID
+				, gb.Price
+				, gp.PublisherName
+				, gb.BookCover
+				, gbg.Genre
+		  FROM gt_books AS gb
+		  LEFT JOIN gt_publishers AS gp ON gp.PublisherID = gb.PublisherID
+		  LEFT JOIN gt_book_genres AS gbg ON gbg.BookGenreID = gb.Genre
 		  WHERE AuthorID = '. $id;
 
 $result = mysqli_query($conn, $query);
