@@ -6,7 +6,7 @@
 
     <!--Profile Info-->
     <div class="col">
-        <form name="changeInfoForm" ng-submit="$ctrl.changeInfo()">
+        <form name="saveInfoForm" ng-submit="$ctrl.changeInfo()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input class="form-control" type="text" name="username" ng-model="$ctrl.myInfo.UserName" required placeholder="New Username">
@@ -44,7 +44,7 @@
                 <input class="form-control" type="number" min="0" name="zipSAddress" ng-model="$ctrl.newShipZip" required placeholder="New Zip">
             </div>
         </form>
-        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="changeInfoForm.$invalid" ng-click="$ctrl.changeInfo()">Save</button>
+        <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="saveInfoForm.$invalid" ng-click="$ctrl.saveInfo()">Save</button>
 
         <form name="changePassForm" ng-submit="$ctrl.changePassword()">
             <div class="form-group">

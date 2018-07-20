@@ -4,6 +4,19 @@ const ProfileComponent = {
         var $ctrl = this;
         $ctrl.myBooks = [];
 
+        $ctrl.saveInfo = function () {
+            api.saveUserInfo($ctrl.myInfo.UserName, $ctrl.myInfo.Email).then(function (response) {
+
+            });
+
+            api.saveHomeAddr($ctrl.newHStreetAddr, $ctrl.newHomeState, $ctrl.newHomeCity, $ctrl.newHomeZip).then(function (response) {
+
+            });
+
+            api.saveShipAddr($ctrl.newSStreetAddr, $ctrl.newShipState, $ctrl.newShipCity, $ctrl.newShipZip).then(function (response) {
+
+            });
+        }
 
         function getData() {
             api.getMyProfileBooks().then(function (response) {
