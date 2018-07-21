@@ -8,6 +8,7 @@ const BooksDetailComponent = {
         $ctrl.comments = {};
         $ctrl.rating = 0;
         $ctrl.isAnon = 0;
+        $ctrl.comment = "";
         $ctrl.ratings = [0, 1, 2, 3, 4, 5];
         $ctrl.isPurchased = [];
         let html = angular.element('html');

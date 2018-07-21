@@ -19,7 +19,7 @@
 
         $ctrl.logOut = function () {
             api.logOut();
-            $state.go('home');
+            $state.go('book');
         }
                 
     }

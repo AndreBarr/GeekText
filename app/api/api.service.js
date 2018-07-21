@@ -50,6 +50,10 @@ const ApiService = function ($http, $window, $rootScope) {
         return _get("api/book_genres.php");
     };
 
+    this.getBookTopSellers = function () {
+        return _get("api/book_top_sellers.php")
+    }
+
     this.getComments = function (bookId) {
         return _get("api/book_comments.php", { BookID: bookId });
     };

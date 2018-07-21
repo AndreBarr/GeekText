@@ -28,6 +28,36 @@
                             <select class="form-control" ng-options="n.Genre as n.Genre for n in $ctrl.genres" ng-model="$ctrl.filter.Genre" ng-change="$ctrl.updateFilter()">
                                 <option></option>
                             </select>
+                            <label>Book Rating</label>
+                            <select class="form-control" ng-options="n as n for n in $ctrl.ratings" ng-model="$ctrl.filter.Rating" ng-change="$ctrl.updateFilter()">
+                                <option></option>
+                            </select>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="isTopSellerscheck" ng-model="$ctrl.sort.isTopSeller" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="isTopSellerscheck">Sort by Top Purchased</label>
+                            </div>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Titlecheck" ng-model="$ctrl.sort.title" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="Titlecheck">Sort by Title</label>
+                            </div>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Authorcheck" ng-model="$ctrl.sort.author" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="Authorcheck">Sort by Author</label>
+                            </div>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Pricecheck" ng-model="$ctrl.sort.topPrice" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="Pricecheck">Sort by Top Price</label>
+                            </div>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="BookRatingcheck" ng-model="$ctrl.sort.bookRating" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="BookRatingcheck">Sort by Book Rating</label>
+                            </div>
+                            <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="ReleaseDatecheck" ng-model="$ctrl.sort.releaseDate" ng-change="$ctrl.updateFilter()">
+                                    <label class="form-check-label" for="ReleaseDatecheck">Sort by Release date</label>
+                            </div>
+
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -48,7 +78,7 @@
     </div>
 
     <!--Books List-->
-    <div ng-repeat="b in $ctrl.books track by $index">
+    <div ng-repeat="b in $ctrl.books track by $index" class="book-list-item">
         <div class="col">
             <div class="row">
                 <div class="col-4 col-sm-4 col-md-2">
@@ -63,9 +93,9 @@
                             <span>By: {{b.AuthorName}}</span>
                         </a>
                     </div>
-
                     <div class="text-muted">Genre: {{b.Genre}}</div>
                     <div><small class="text-muted">Published by: {{b.PublisherName}}</small></div>
+                    <div><small class="text-muted">Purchased {{b.NumPurchased}} time(s)</small></div>
                     <span class="text-muted" ng-if="b.Rating != '-'">
                         <rating ng-model="b.Rating" />
                     </span>

@@ -78,10 +78,10 @@ CREATE TABLE `gt_user_detail` (
 
 CREATE TABLE `gt_user_shippings` (
   `UserID` int(11) NOT NULL,
-  `ShippingAddr` varchar(255) DEFAULT NULL,
-  `ShippingCity` varchar(2000) DEFAULT NULL,
-  `ShippingState` varchar(2000) DEFAULT NULL,
-  `ShippingZIP` INT(11) DEFAULT NULL,
+  `ShippingAddr` varchar(255) NOT NULL,
+  `ShippingCity` varchar(2000) NOT NULL,
+  `ShippingState` varchar(2000) NOT NULL,
+  `ShippingZIP` INT(11) NOT NULL,
   PRIMARY KEY (`UserID`, `ShippingAddr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
