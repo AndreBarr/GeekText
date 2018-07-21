@@ -130,9 +130,7 @@ footer {
 .book-list-item {
     transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0, 0, 0.2, 1), color 0.2s cubic-bezier(0, 0, 0.2, 1);
 }
-    .book-list-item:hover {
-        background-color: #c7c7c7;
-    }
+
 
     .book-list-item.ng-enter {
         transition: transform 0.5s cubic-bezier(0.53, -0.01, 0.16, 0.99);
