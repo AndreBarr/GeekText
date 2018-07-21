@@ -36,8 +36,13 @@ const LoginComponent = {
 
             api.register($ctrl.newUsername, $ctrl.newPassword, $ctrl.newEmail)
                 .then(function (response) {
-                    alert("Account has been created");
-                    $state.go("books");
+                    if (response.data === -1) {
+                        alert("Username or Email already in use")
+                    }
+                    else if (response.data > 0) {
+                        alert("Account has been created");
+                        $state.go("books");
+                    }
                 }, function (response) {
                     alert("Error creating account.");
                 });

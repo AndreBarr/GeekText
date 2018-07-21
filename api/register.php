@@ -16,12 +16,24 @@ $password = md5($data->password . $salt);
 $userId = rand();
  
  //No logic to check for duplicates i.e unique username & email
+$queryCheck = 'SELECT * FROM gt_users WHERE UserName = \'' . $data->username . '\' OR Email = \'' . $data->email . '\'';
+$resultCheck = mysqli_query($conn, $queryCheck) or die(mysqli_error());
+$resultCheckCount = mysqli_num_rows($resultCheck);
+if ($resultCheckCount > 0) {
+	//error code
+	echo -1;
+}
+else {
+	$query = 'INSERT INTO gt_users (UserID, UserName, Email, Hash, Salt) VALUES (' . $userId . ', \''. $data->username . '\', \'' . $data->	email .'\', \''. $password . '\', ' . $salt . ')';
+	$result = mysqli_query($conn, $query) or die(mysqli_error());
+	print_r($result);
 
-$query = 'INSERT INTO gt_users (UserID, UserName, Email, Hash, Salt) VALUES (' . $userId . ', \''. $data->username . '\', \'' . $data->	email .'\', \''. $password . '\', ' . $salt . ')';
-$result = mysqli_query($conn, $query) or die(mysqli_error());
+	$queryHomeAddr = 'INSERT INTO gt_user_detail (UserID) VALUES (' . $userId . ')';
+	$resultHomeAddr = mysqli_query($conn, $queryHomeAddr) or die(mysqli_error());
 
-if($result){
-	echo $userId;
+	if($result){
+		echo $userId;
+	}
 }
 	
 ?>
