@@ -19,7 +19,7 @@ const RatingDirective = function () {
                 var remainder = rating % 1;
                 rating -= remainder;
 
-                for (var i = 1; i <= 5; i++) {
+                for (var i = 0; i < 5; i++) {
                     if (i < rating) {
                         stars.push(STAR);
                     }
