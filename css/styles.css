@@ -18,59 +18,64 @@
 
 /*Scroll bar*/
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+    background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+    background: #888;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
 /*Navbar*/
 .navbar {
-  background-color: var(--color-bg-primary);
-  color: white;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); 
+    background-color: var(--color-bg-primary);
+    color: white;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
+
 .nav-item {
-  margin-right: 10px;
-  margin-top: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 /*Login-Form Validation*/
 .formValidation {
-  color: red;
+    color: red;
 }
 
 /*Profile-Info Change Btn*/
 .infoBtn {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /*footer*/
 footer {
-  background-color: darkgrey; 
+    background-color: darkgrey;
 }
 
 .content-main {
-  margin-top: 80px;
+    margin-top: 80px;
 }
 
 .freeze-scroll {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .hidden-label {
-	position: absolute;
-	height: 0;
-	width: 0;
-	overflow: hidden;
-	visibility: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
 }
+
 .post-comment {
     border-left: 2px solid;
     border-color: #0089ff;
@@ -78,24 +83,25 @@ footer {
     margin: 0 0 15px 15px;
 }
 
-.scroll-y{
-    overflow-y:scroll;
+.scroll-y {
+    overflow-y: scroll;
 }
 
-.zoom-img{
-    transition:0.3s var(--bezier-motion);
+.zoom-img {
+    transition: 0.3s var(--bezier-motion);
     transform: none;
 }
-.zoom-img:hover{
-    box-shadow: var(--shadow-d4);
-    transform: scale();
-}
+
+    .zoom-img:hover {
+        box-shadow: var(--shadow-d4);
+        transform: scale();
+    }
 
 /*Paginator*/
 .pagination > li > a, .pagination > li > span {
     border: none;
     padding: 0.3rem 0.5rem;
-    display:block;
+    display: block;
     cursor: pointer;
 }
 
@@ -107,7 +113,7 @@ footer {
 .pagination > .active > span:focus {
     background-color: var(--color-info);
     border-color: var(--color-info);
-    color:white;
+    color: white;
 }
 
 .pagination > li:first-child > a,
@@ -117,3 +123,35 @@ footer {
     line-height: 0;
     padding: 6px 2px 2px;
 }
+
+
+
+/*Default Div Tables*/
+.book-list-item {
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0, 0, 0.2, 1), color 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+    .book-list-item:hover {
+        background-color: #c7c7c7;
+    }
+
+    .book-list-item.ng-enter {
+        transition: transform 0.5s cubic-bezier(0.53, -0.01, 0.16, 0.99);
+        transform: translateY(100vh);
+    }
+
+    .book-list-item.ng-enter-stagger {
+        transition-delay: 0.01s;
+        transition-duration: 0s;
+    }
+
+    .book-list-item.ng-enter-active {
+        transform: translateY(0);
+    }
+
+    .book-list-item.ng-leave {
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    .book-list-item.ng-leave-active {
+        opacity: 0;
+    }
