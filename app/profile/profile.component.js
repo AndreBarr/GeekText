@@ -3,27 +3,57 @@ const ProfileComponent = {
     controller: function (api) {
         var $ctrl = this;
         $ctrl.myBooks = [];
+        $ctrl.myInfo = null;
+        $ctrl.addrs = [];
 
         $ctrl.saveInfo = function () {
-            api.saveUserInfo($ctrl.myInfo.UserName, $ctrl.myInfo.Email).then(function (response) {
-
+            api.saveUserInfo($ctrl.myInfo)
+            .then(function (response) {
+            }, function (response) {
+            	//404 not found
             });
 
-            api.saveHomeAddr($ctrl.newHStreetAddr, $ctrl.newHomeState, $ctrl.newHomeCity, $ctrl.newHomeZip).then(function (response) {
-
-            });
-
-            api.saveShipAddr($ctrl.newSStreetAddr, $ctrl.newShipState, $ctrl.newShipCity, $ctrl.newShipZip).then(function (response) {
-
+            api.saveShippingInfo($ctrl.addrs)
+            .then(function (response) {
+            }, function (response) {
+            	//404 not found
             });
         }
 
-        function getData() {
-            api.getMyProfileBooks().then(function (response) {
-                $ctrl.myBooks = response.data;
-            }, function (response) {
-                //404 not found
-            });
+        $ctrl.addAddress = function () {
+        	$ctrl.addrs.push({});
+        }
+
+        $ctrl.deleteAddress = function (index) {
+        	$ctrl.addrs.splice(index, 1);
+        }
+
+        $ctrl.changePassword = function () {
+        	if ($ctrl.newPassword !== $ctrl.confirmedPassword)
+                return;
+
+        	api.changeUserPassword($ctrl.oldPassword, $ctrl.newPassword)
+        		.then(function (response) {
+                    if (response.data === -1)
+                    {
+                        $ctrl.incorrect = true;
+                        $ctrl.notNewPass = false;
+                        //alert("Old password is incorrect");
+                    }
+                    else if (response.data === -2)
+                    {
+                    	$ctrl.incorrect = false;
+                    	$ctrl.notNewPass = true;
+                    }
+                    else if (response.data === 1)
+                    {
+                        $ctrl.incorrect = false;
+                        $ctrl.notNewPass = false;
+                        alert("Password has been changed!");
+                    }
+                }, function (response) {
+                    //404 not found
+                });
         }
 
         function getUserInfo() {
@@ -32,13 +62,22 @@ const ProfileComponent = {
             }, function (response) {
                 //404 not found
             });
+
+            api.getMyProfileBooks().then(function (response) {
+                $ctrl.myBooks = response.data;
+            }, function (response) {
+                //404 not found
+            });
+
+            api.getShippingInfo().then(function (response) {
+                $ctrl.addrs = response.data;
+            }, function (response) {
+                //404 not found
+            });
         }
 
         this.$onInit = function () {
-
-            getData();
             getUserInfo();
-
         }
 
 

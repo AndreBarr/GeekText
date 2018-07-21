@@ -122,4 +122,20 @@ const ApiService = function ($http, $window, $rootScope) {
         return _get("api/profile_info.php", { UserID: userId } );
     }
 
+    this.getShippingInfo = function () {
+        return _get("api/get_shipping_info.php", { UserID: userId } );
+    }    
+
+    this.saveUserInfo = function (theInfo) {
+        return _post("api/save_basic_info.php", theInfo);
+    }
+
+    this.saveShippingInfo = function (theAddresses) {
+        return _post("api/save_shipping_info.php", {theAddresses: theAddresses, userId: userId});
+    }
+
+    this.changeUserPassword = function (oldPassword, newPassword) {
+        return _post("api/change_password.php", {oldPassword: oldPassword, newPassword: newPassword, userId: userId});
+    }
+
 };

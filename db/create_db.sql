@@ -1,4 +1,4 @@
-DROP DATABASE geek_text;
+﻿DROP DATABASE geek_text;
 CREATE DATABASE geek_text;
 USE geek_text;
 

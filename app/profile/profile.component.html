@@ -7,60 +7,104 @@
     <!--Profile Info-->
     <div class="col">
         <form name="saveInfoForm" ng-submit="$ctrl.changeInfo()">
-            <div class="form-group">
+            <div class="form-group row">
+                <div class="col-sm-4">
                 <label for="username">Username:</label>
-                <input class="form-control" type="text" name="username" ng-model="$ctrl.myInfo.UserName" required placeholder="New Username">
+                <input class="form-control" type="text" name="username" ng-model="$ctrl.myInfo.UserName" required>
+                </div>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+                <div class="col-sm-4">
                 <label for="email">Email:</label>
-                <input class="form-control" type="text" name="email" ng-model="$ctrl.myInfo.Email" required placeholder="New Email">
+                <input class="form-control" type="text" name="email" ng-model="$ctrl.myInfo.Email" required>
+                </div>
             </div>
-            <label>Home Address:</label>
-            <div class="form-group form-inline">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                <label for="email">Real Name:</label>
+                <input class="form-control" type="text" name="email" ng-model="$ctrl.myInfo.RealName" required>
+                </div>
+            </div>
+            <h5>Home Address:</h5>
+            <div class="form-group row">
+                <div class="col">
                 <label for="streetHAddress">Street Address:</label>
-                <input class="form-control" type="text" name="streetHAddress" ng-model="$ctrl.newHStreetAddr" required placeholder="New Street Address">
+                <input class="form-control" type="text" name="streetHAddress" ng-model="$ctrl.myInfo.HomeAddr">
+                </div>
 
+                <div class="col">
                 <label for="stateHAddress">State:</label>
-                <input class="form-control" type="text" name="stateHAddress" ng-maxlength="2" ng-model="$ctrl.newHomeState" required placeholder="New State">
+                <input class="form-control" type="text" name="stateHAddress" ng-maxlength="2" ng-model="$ctrl.myInfo.HomeState">
+                </div>
 
+                <div class="col">
                 <label for="cityHAddress">City:</label>
-                <input class="form-control" type="text" name="cityHAddress" ng-model="$ctrl.newHomeCity" required placeholder="New City">
+                <input class="form-control" type="text" name="cityHAddress" ng-model="$ctrl.myInfo.HomeCity">
+                </div>
 
+                <div class="col">
                 <label for="zipHAddress">Zip Code:</label>
-                <input class="form-control" type="number" min="0" name="zipHAddress" ng-model="$ctrl.newHomeZip" required placeholder="New Zip">
+                <input class="form-control" type="text" name="zipHAddress" ng-model="$ctrl.myInfo.HomeZip">
+                </div>
             </div>
-            <label>Shipping Address:</label>
-            <div class="form-group form-inline">
+            <h5>Shipping Address:</h5>
+            <div class="row">
+                <button class="btn btn-link" ng-click=$ctrl.addAddress()>Add +</button>
+            </div>
+            <div class="form-group row" ng-repeat="n in $ctrl.addrs">
+                <div class="col">
                 <label for="streetSAddress">Street Address:</label>
-                <input class="form-control" type="text" name="streetSAddress" ng-model="$ctrl.newSStreetAddr" required placeholder="New Street Address">
+                <input class="form-control" type="text" name="streetSAddress" ng-model="n.ShippingAddr" required>
+                </div>
 
+                <div class="col">
                 <label for="stateSAddress">State:</label>
-                <input class="form-control" type="text" name="stateSAddress" ng-maxlength="2" ng-model="$ctrl.newShipState" required placeholder="New State">
+                <input class="form-control" type="text" name="stateSAddress" ng-maxlength="2" ng-model="n.ShippingState" required>
+                </div> 
 
+                <div class="col">
                 <label for="citySAddress">City:</label>
-                <input class="form-control" type="text" name="citySAddress" ng-model="$ctrl.newShipCity" required placeholder="New City">
+                <input class="form-control" type="text" name="citySAddress" ng-model="n.ShippingCity" required>
+                </div>
 
+                <div class="col">
                 <label for="zipSAddress">Zip Code:</label>
-                <input class="form-control" type="number" min="0" name="zipSAddress" ng-model="$ctrl.newShipZip" required placeholder="New Zip">
+                <input class="form-control" type="text" name="zipSAddress" ng-model="n.ShippingZIP" required>
+                </div>
+
+                <div class="flex-grow-0">
+                    <button class="btn btn-link" ng-click="$ctrl.deleteAddress($index)"><i class="material-icons align-middle"> close </i></button>
+                </div>
             </div>
         </form>
         <button type="button" class="btn btn-sm btn-primary infoBtn" ng-disabled="saveInfoForm.$invalid" ng-click="$ctrl.saveInfo()">Save</button>
 
         <form name="changePassForm" ng-submit="$ctrl.changePassword()">
-            <div class="form-group">
-                <label for="password" class="hidden-label">Old Password</label>
-                <input class="form-control" type="text" name="oldPassword" ng-model="$ctrl.oldPassword" required placeholder="Old Password">
+            <h4>Change Password:</h4>
+            <div class= "row">
+                <div class="form-group col-sm-4">
+                    <label for="password" class="hidden-label">Old Password</label>
+                    <input class="form-control" type="password" name="oldPassword" ng-model="$ctrl.oldPassword" required placeholder="Old Password">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password" class="hidden-label">New Password</label>
-                <input class="form-control" type="text" name="newPassword" ng-model="$ctrl.newPassword" required placeholder="New Password">
+
+            <div class= "row">
+                <div class="form-group col-sm-4">
+                    <label for="password" class="hidden-label">New Password</label>
+                    <input class="form-control" type="password" name="newPassword" ng-model="$ctrl.newPassword" required placeholder="New Password">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password" class="hidden-label">Confirm Password</label>
-                <input class="form-control" type="text" name="confirmedPassword" ng-model="$ctrl.confirmNewPassword" required placeholder="Confirm New Password">
+
+            <div class= "row">
+                <div class="form-group col-sm-4">
+                    <label for="password" class="hidden-label">Confirm Password</label>
+                    <input class="form-control" type="password" name="confirmedPassword" ng-model="$ctrl.confirmedPassword" required placeholder="Confirm New Password">
+                </div>
             </div>
         </form>
-        <span ng-if="$ctrl.newPassword != $ctrl.confirmNewPassword">Passwords do not match</span>
+        <span class="formValidation" ng-if="$ctrl.newPassword != $ctrl.confirmedPassword">Passwords do not match</span>
+        <span class="formValidation" ng-if="$ctrl.incorrect">Old password was incorrect</span>
+        <span class="formValidation" ng-if="$ctrl.notNewPass">Please use a different password</span>
         <button type="button" class="btn btn-sm btn-primary" ng-disabled="($ctrl.newPassword != $ctrl.confirmedPassword) || changePassForm.$invalid" ng-click="$ctrl.changePassword()">Change Password</button>
     </div>
 
