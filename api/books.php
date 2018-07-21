@@ -15,6 +15,7 @@
 					, gb.BookCover
 					, gc.PublisherName
 					, gc.PublisherID
+					, gb.ReleaseDate
 					, IFNULL(gr.Rating, \'-\') AS Rating
 			        , IFNULL(purch.NumPurchased, 0) AS NumPurchased
 				FROM gt_books AS gb 
