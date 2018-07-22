@@ -85,6 +85,15 @@ CREATE TABLE `gt_user_shippings` (
   PRIMARY KEY (`UserID`, `ShippingAddr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `gt_user_cards` (
+  `UserID` int(11) NOT NULL,
+  `CreditCardNum` INT NOT NULL,
+  `ExpMonth` INT NOT NULL,
+  `ExpYear` INT NOT NULL,
+  `NameOnCard` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`UserID`, `CreditCardNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (1, 'Science fiction');
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (2, 'Satire');
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (3, 'Drama');
