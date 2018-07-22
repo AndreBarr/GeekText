@@ -91,7 +91,7 @@ const ProfileComponent = {
             });
 
             api.getCreditCardInfo().then(function (response) {
-                $ctrl.addrs = response.data;
+                $ctrl.creditCards = response.data;
             }, function (response) {
                 //404 not found
             });

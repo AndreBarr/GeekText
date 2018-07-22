@@ -84,26 +84,27 @@
             <div class="row">
                 <button class="btn btn-link" ng-click=$ctrl.addCreditCard()>Add +</button>
             </div>
-            <div class="form-group row" ng-repeat="n in $ctrl.addrs" ng-form="shippingAddresses">
+            <div class="form-group row" ng-repeat="n in $ctrl.creditCards" ng-form="creditCards">
                     <div class="col">
                     <label for="nameOnCard">Name on Card:</label>
-                    <input class="form-control" type="text" name="nameOnCard" ng-model="n.nameOnCard" required>
+                    <input class="form-control" type="text" name="nameOnCard" ng-model="n.NameOnCard" required>
                     </div>
 
                     <div class="col">
                     <label for="creditCardNumber">Credit Card Number:</label>
-                    <input class="form-control" type="text" name="creditCardNumber" ng-model="n.creditCardNumber" required>
+                    <input class="form-control" type="password" name="creditCardNumber" ng-model="n.CreditCardNum" required>
                     </div>
 
                     <div class="col">
                     <label for="expirationMonth">Expiration Month</label>
-                    <input class="form-control" type="text" name="expirationMonth" ng-model="n.expirationMonth" required>
-                    <span class="formValidation" ng-if="shippingAddresses.stateSAddress.$invalid">Use two letter state name</span>
+                    <input class="form-control" type="text" name="expirationMonth" ng-maxlength="2" ng-model="n.ExpMonth" required>
+                    <span class="formValidation" ng-if="creditCards.expirationMonth.$invalid">Use exactly two numbers to indicate month</span>
                     </div> 
 
                     <div class="col">
                     <label for="expirationYear">Expiration Year</label>
-                    <input class="form-control" type="text" name="expirationYear" ng-model="n.expirationYear" required>
+                    <input class="form-control" type="text" name="expirationYear" ng-maxlength="2" ng-model="n.ExpYear" required>
+                    <span class="formValidation" ng-if="creditCards.expirationYear.$invalid">Use exactly  two numbers to indicate the year</span>
                     </div>
 
                     <div class="flex-grow-0">

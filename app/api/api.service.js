@@ -126,12 +126,20 @@ const ApiService = function ($http, $window, $rootScope) {
         return _get("api/get_shipping_info.php", { UserID: userId } );
     }    
 
+    this.getCreditCardInfo = function () {
+        return _get("api/get_credit_card_info.php", { UserID: userId } );
+    }    
+
     this.saveUserInfo = function (theInfo) {
         return _post("api/save_basic_info.php", theInfo);
     }
 
     this.saveShippingInfo = function (theAddresses) {
         return _post("api/save_shipping_info.php", {theAddresses: theAddresses, userId: userId});
+    }
+
+    this.saveCreditCardInfo = function (theCards) {
+        return _post("api/save_credit_card_info.php", {theCards: theCards, userId: userId});
     }
 
     this.changeUserPassword = function (oldPassword, newPassword) {
