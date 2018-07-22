@@ -68,7 +68,7 @@ CREATE TABLE `gt_book_genres` (
 
 CREATE TABLE `gt_user_detail` (
   `UserID` int(11) NOT NULL,
-  `RealName` varchar(50) NOT NULL,
+  `RealName` varchar(50) NULL,
   `HomeAddr` varchar(255) DEFAULT NULL,
   `HomeCity` varchar(2000) DEFAULT NULL,
   `HomeState` varchar(2000) DEFAULT NULL,
