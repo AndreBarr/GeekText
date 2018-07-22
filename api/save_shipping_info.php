@@ -13,7 +13,7 @@
 	$delete = mysqli_query($conn, $queryDelete);
 
 	foreach ($data->theAddresses as $anAddress) {
-		$queryInsert = 'INSERT INTO gt_user_shippings (UserID, ShippingAddr, ShippingState, ShippingCity, ShippingZip) VALUES (\'' . $data->userId . '\' , \'' . $anAddress->ShippingAddr . '\' , \''. $anAddress->ShippingState . '\' , \'' . $anAddress->ShippingCity . '\' ,\''. $anAddress->ShippingZip . '\')';
+		$queryInsert = 'INSERT INTO gt_user_shippings (UserID, ShippingAddr, ShippingState, ShippingCity, ShippingZIP) VALUES (\'' . $data->userId . '\' , \'' . $anAddress->ShippingAddr . '\' , \''. $anAddress->ShippingState . '\' , \'' . $anAddress->ShippingCity . '\' ,\''. $anAddress->ShippingZIP . '\')';
 
 		$insert = mysqli_query($conn, $queryInsert);
 	}

@@ -5,6 +5,7 @@ const ProfileComponent = {
         $ctrl.myBooks = [];
         $ctrl.myInfo = null;
         $ctrl.addrs = [];
+        $ctrl.creditCards = [];
 
         $ctrl.saveInfo = function () {
             api.saveUserInfo($ctrl.myInfo)
@@ -18,6 +19,12 @@ const ProfileComponent = {
             }, function (response) {
             	//404 not found
             });
+
+            api.saveCreditCardInfo($ctrl.creditCards)
+            .then(function (response) {
+            }, function (response) {
+                //404 not found
+            });
         }
 
         $ctrl.addAddress = function () {
@@ -26,6 +33,14 @@ const ProfileComponent = {
 
         $ctrl.deleteAddress = function (index) {
         	$ctrl.addrs.splice(index, 1);
+        }
+
+        $ctrl.addCreditCard = function () {
+            $ctrl.creditCards.push({});
+        }
+
+        $ctrl.deleteCreditCard = function (index) {
+            $ctrl.creditCards.splice(index, 1);
         }
 
         $ctrl.changePassword = function () {
@@ -70,6 +85,12 @@ const ProfileComponent = {
             });
 
             api.getShippingInfo().then(function (response) {
+                $ctrl.addrs = response.data;
+            }, function (response) {
+                //404 not found
+            });
+
+            api.getCreditCardInfo().then(function (response) {
                 $ctrl.addrs = response.data;
             }, function (response) {
                 //404 not found
