@@ -68,7 +68,7 @@ CREATE TABLE `gt_book_genres` (
 
 CREATE TABLE `gt_user_detail` (
   `UserID` int(11) NOT NULL,
-  `RealName` varchar(50) NOT NULL,
+  `RealName` varchar(50) NULL,
   `HomeAddr` varchar(255) DEFAULT NULL,
   `HomeCity` varchar(2000) DEFAULT NULL,
   `HomeState` varchar(2000) DEFAULT NULL,
@@ -83,6 +83,15 @@ CREATE TABLE `gt_user_shippings` (
   `ShippingState` varchar(2000) NOT NULL,
   `ShippingZIP` INT(11) NOT NULL,
   PRIMARY KEY (`UserID`, `ShippingAddr`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gt_user_cards` (
+  `UserID` int(11) NOT NULL,
+  `CreditCardNum` INT NOT NULL,
+  `ExpMonth` INT NOT NULL,
+  `ExpYear` INT NOT NULL,
+  `NameOnCard` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`UserID`, `CreditCardNum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO gt_book_genres(BookGenreID, Genre) VALUES (1, 'Science fiction');
